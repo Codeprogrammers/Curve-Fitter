@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A20372041495C9A000E65FFC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372031495C9A000E65FFC /* Default@2x.png */; };
+		A20372071495C9A200E65FFC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372061495C9A200E65FFC /* Default.png */; };
+		A20372091495C9A500E65FFC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372081495C9A500E65FFC /* icon.png */; };
+		A203720B1495C9A800E65FFC /* iconsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = A203720A1495C9A800E65FFC /* iconsmall.png */; };
+		A205A05B14941DA4006963B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A205A05A14941DA4006963B2 /* UIKit.framework */; };
+		A205A05D14941DA4006963B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A205A05C14941DA4006963B2 /* Foundation.framework */; };
+		A205A05F14941DA4006963B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A205A05E14941DA4006963B2 /* CoreGraphics.framework */; };
+		A205A06514941DA5006963B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A205A06314941DA5006963B2 /* InfoPlist.strings */; };
+		A205A06714941DA5006963B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A205A06614941DA5006963B2 /* main.m */; };
+		A205A06B14941DA5006963B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A205A06A14941DA5006963B2 /* AppDelegate.m */; };
+		A205A07814941E24006963B2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A205A07614941E24006963B2 /* RootViewController.m */; };
+		A205A07914941E24006963B2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A205A07714941E24006963B2 /* RootViewController.xib */; };
+		A21F0F7E14955A7300443375 /* CurveDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F0F7C14955A7300443375 /* CurveDetailViewController.m */; };
+		A21F0F7F14955A7300443375 /* CurveDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */; };
+		A21F8EDF14C3ADAD00CD26E1 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A21F8EDC14C3AC7800CD26E1 /* libCorePlot-CocoaTouch.a */; };
+		A21F8EE414C3B13B00CD26E1 /* CorePlot-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */; };
+		A21F8EE514C3B13B00CD26E1 /* README in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE114C3B13B00CD26E1 /* README */; };
+		A21F8EE614C3B13B00CD26E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE214C3B13B00CD26E1 /* README.md */; };
+		A21F8EE714C3B13B00CD26E1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE314C3B13B00CD26E1 /* README.txt */; };
+		A25F19E61495DE240072E443 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A25F19E51495DE240072E443 /* QuartzCore.framework */; };
+		A2887395149B1E03000F2780 /* EditCurveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2887393149B1E03000F2780 /* EditCurveViewController.m */; };
+		A2887396149B1E03000F2780 /* EditCurveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2887394149B1E03000F2780 /* EditCurveViewController.xib */; };
+		A290CED31495CB440084BCF0 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A290CED21495CB440084BCF0 /* Default-Landscape~ipad.png */; };
+		A2A443C414C28B4B0033B936 /* CurveArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A443C314C28B4B0033B936 /* CurveArray.m */; };
+		A2AF463D14B348C300D2D0A8 /* PointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AF463B14B348C300D2D0A8 /* PointCell.m */; };
+		A2AF463E14B348C300D2D0A8 /* PointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2AF463C14B348C300D2D0A8 /* PointCell.xib */; };
+		A2E4D73D1494320700E41CD4 /* curveMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E4D73C1494320700E41CD4 /* curveMath.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A21F8EDB14C3AC7800CD26E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A25F19E81495DEC00072E443 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A20372031495C9A000E65FFC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A20372061495C9A200E65FFC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A20372081495C9A500E65FFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A203720A1495C9A800E65FFC /* iconsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconsmall.png; sourceTree = "<group>"; };
+		A205A05614941DA4006963B2 /* Curve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A205A05A14941DA4006963B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A205A05C14941DA4006963B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A205A05E14941DA4006963B2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A205A06214941DA4006963B2 /* Curve-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Curve-Info.plist"; sourceTree = "<group>"; };
+		A205A06414941DA5006963B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A205A06614941DA5006963B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A205A06814941DA5006963B2 /* Curve-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Curve-Prefix.pch"; sourceTree = "<group>"; };
+		A205A06914941DA5006963B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A205A06A14941DA5006963B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A205A07514941E24006963B2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Curve/ViewControllers/RootViewController.h; sourceTree = SOURCE_ROOT; };
+		A205A07614941E24006963B2 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RootViewController.m; path = Curve/ViewControllers/RootViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A205A07714941E24006963B2 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = Curve/Views/RootViewController.xib; sourceTree = SOURCE_ROOT; };
+		A21F0F7B14955A7300443375 /* CurveDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurveDetailViewController.h; path = Curve/ViewControllers/CurveDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		A21F0F7C14955A7300443375 /* CurveDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CurveDetailViewController.m; path = ViewControllers/CurveDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurveDetailViewController.xib; path = Curve/Views/CurveDetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CorePlot-License.txt"; sourceTree = "<group>"; };
+		A21F8EE114C3B13B00CD26E1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		A21F8EE214C3B13B00CD26E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A21F8EE314C3B13B00CD26E1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		A25F19E51495DE240072E443 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A25F19E81495DEC00072E443 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "CorePlot-Framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		A2887392149B1E03000F2780 /* EditCurveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditCurveViewController.h; path = Curve/ViewControllers/EditCurveViewController.h; sourceTree = SOURCE_ROOT; };
+		A2887393149B1E03000F2780 /* EditCurveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditCurveViewController.m; path = Curve/ViewControllers/EditCurveViewController.m; sourceTree = SOURCE_ROOT; };
+		A2887394149B1E03000F2780 /* EditCurveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditCurveViewController.xib; path = Curve/Views/EditCurveViewController.xib; sourceTree = SOURCE_ROOT; };
+		A290CED21495CB440084BCF0 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		A2A443C214C28B4B0033B936 /* CurveArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurveArray.h; path = "Curve/Models/Singleton Objects/CurveArray.h"; sourceTree = SOURCE_ROOT; };
+		A2A443C314C28B4B0033B936 /* CurveArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurveArray.m; path = "Curve/Models/Singleton Objects/CurveArray.m"; sourceTree = SOURCE_ROOT; };
+		A2AF463A14B348C300D2D0A8 /* PointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointCell.h; path = Curve/ViewControllers/PointCell.h; sourceTree = SOURCE_ROOT; };
+		A2AF463B14B348C300D2D0A8 /* PointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointCell.m; path = Curve/ViewControllers/PointCell.m; sourceTree = SOURCE_ROOT; };
+		A2AF463C14B348C300D2D0A8 /* PointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PointCell.xib; path = Curve/Views/PointCell.xib; sourceTree = SOURCE_ROOT; };
+		A2E4D73B1494320700E41CD4 /* curveMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = curveMath.h; path = "Curve/Models/Class Objects/curveMath.h"; sourceTree = SOURCE_ROOT; };
+		A2E4D73C1494320700E41CD4 /* curveMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = curveMath.m; path = "Curve/Models/Class Objects/curveMath.m"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A205A05314941DA4006963B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21F8EDF14C3ADAD00CD26E1 /* libCorePlot-CocoaTouch.a in Frameworks */,
+				A25F19E61495DE240072E443 /* QuartzCore.framework in Frameworks */,
+				A205A05B14941DA4006963B2 /* UIKit.framework in Frameworks */,
+				A205A05D14941DA4006963B2 /* Foundation.framework in Frameworks */,
+				A205A05F14941DA4006963B2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A203720C1495C9AE00E65FFC /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				A290CED21495CB440084BCF0 /* Default-Landscape~ipad.png */,
+				A203720A1495C9A800E65FFC /* iconsmall.png */,
+				A20372081495C9A500E65FFC /* icon.png */,
+				A20372061495C9A200E65FFC /* Default.png */,
+				A20372031495C9A000E65FFC /* Default@2x.png */,
+			);
+			name = Media;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A205A04B14941DA4006963B2 = {
+			isa = PBXGroup;
+			children = (
+				A25F19E81495DEC00072E443 /* CorePlot-CocoaTouch.xcodeproj */,
+				A205A06014941DA4006963B2 /* Curve */,
+				A205A05914941DA4006963B2 /* Frameworks */,
+				A21F8EE814C3B14000CD26E1 /* Documentation */,
+				A205A05714941DA4006963B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A205A05714941DA4006963B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A205A05614941DA4006963B2 /* Curve.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A205A05914941DA4006963B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A25F19E51495DE240072E443 /* QuartzCore.framework */,
+				A205A05A14941DA4006963B2 /* UIKit.framework */,
+				A205A05C14941DA4006963B2 /* Foundation.framework */,
+				A205A05E14941DA4006963B2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A205A06014941DA4006963B2 /* Curve */ = {
+			isa = PBXGroup;
+			children = (
+				A205A06914941DA5006963B2 /* AppDelegate.h */,
+				A205A06A14941DA5006963B2 /* AppDelegate.m */,
+				A21F0F8114955A8200443375 /* ViewControllers */,
+				A205A07B14941E2B006963B2 /* Views */,
+				A2E4D73F1494320B00E41CD4 /* Models */,
+				A203720C1495C9AE00E65FFC /* Media */,
+				A205A06114941DA4006963B2 /* Supporting Files */,
+			);
+			path = Curve;
+			sourceTree = "<group>";
+		};
+		A205A06114941DA4006963B2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A205A06214941DA4006963B2 /* Curve-Info.plist */,
+				A205A06314941DA5006963B2 /* InfoPlist.strings */,
+				A205A06614941DA5006963B2 /* main.m */,
+				A205A06814941DA5006963B2 /* Curve-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A205A07B14941E2B006963B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A205A07714941E24006963B2 /* RootViewController.xib */,
+				A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */,
+				A2887394149B1E03000F2780 /* EditCurveViewController.xib */,
+				A2AF463C14B348C300D2D0A8 /* PointCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A21F0F8114955A8200443375 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A205A07514941E24006963B2 /* RootViewController.h */,
+				A205A07614941E24006963B2 /* RootViewController.m */,
+				A21F0F7B14955A7300443375 /* CurveDetailViewController.h */,
+				A21F0F7C14955A7300443375 /* CurveDetailViewController.m */,
+				A2887392149B1E03000F2780 /* EditCurveViewController.h */,
+				A2887393149B1E03000F2780 /* EditCurveViewController.m */,
+				A2AF463A14B348C300D2D0A8 /* PointCell.h */,
+				A2AF463B14B348C300D2D0A8 /* PointCell.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A21F8ED614C3AC7800CD26E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A21F8EDC14C3AC7800CD26E1 /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A21F8EE814C3B14000CD26E1 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */,
+				A21F8EE114C3B13B00CD26E1 /* README */,
+				A21F8EE214C3B13B00CD26E1 /* README.md */,
+				A21F8EE314C3B13B00CD26E1 /* README.txt */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		A2A443C114C28B240033B936 /* Class Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A2E4D73B1494320700E41CD4 /* curveMath.h */,
+				A2E4D73C1494320700E41CD4 /* curveMath.m */,
+			);
+			name = "Class Objects";
+			sourceTree = "<group>";
+		};
+		A2A443C514C28B520033B936 /* Singleton Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A2A443C214C28B4B0033B936 /* CurveArray.h */,
+				A2A443C314C28B4B0033B936 /* CurveArray.m */,
+			);
+			name = "Singleton Objects";
+			sourceTree = "<group>";
+		};
+		A2E4D73F1494320B00E41CD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2A443C114C28B240033B936 /* Class Objects */,
+				A2A443C514C28B520033B936 /* Singleton Objects */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A205A05514941DA4006963B2 /* Curve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A205A06E14941DA5006963B2 /* Build configuration list for PBXNativeTarget "Curve" */;
+			buildPhases = (
+				A205A05214941DA4006963B2 /* Sources */,
+				A205A05314941DA4006963B2 /* Frameworks */,
+				A205A05414941DA4006963B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Curve;
+			productName = Curve;
+			productReference = A205A05614941DA4006963B2 /* Curve.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A205A04D14941DA4006963B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = A205A05014941DA4006963B2 /* Build configuration list for PBXProject "Curve" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A205A04B14941DA4006963B2;
+			productRefGroup = A205A05714941DA4006963B2 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A21F8ED614C3AC7800CD26E1 /* Products */;
+					ProjectRef = A25F19E81495DEC00072E443 /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				A205A05514941DA4006963B2 /* Curve */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A21F8EDC14C3AC7800CD26E1 /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = A21F8EDB14C3AC7800CD26E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A205A05414941DA4006963B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A205A06514941DA5006963B2 /* InfoPlist.strings in Resources */,
+				A205A07914941E24006963B2 /* RootViewController.xib in Resources */,
+				A21F0F7F14955A7300443375 /* CurveDetailViewController.xib in Resources */,
+				A20372041495C9A000E65FFC /* Default@2x.png in Resources */,
+				A20372071495C9A200E65FFC /* Default.png in Resources */,
+				A20372091495C9A500E65FFC /* icon.png in Resources */,
+				A203720B1495C9A800E65FFC /* iconsmall.png in Resources */,
+				A290CED31495CB440084BCF0 /* Default-Landscape~ipad.png in Resources */,
+				A2887396149B1E03000F2780 /* EditCurveViewController.xib in Resources */,
+				A2AF463E14B348C300D2D0A8 /* PointCell.xib in Resources */,
+				A21F8EE414C3B13B00CD26E1 /* CorePlot-License.txt in Resources */,
+				A21F8EE514C3B13B00CD26E1 /* README in Resources */,
+				A21F8EE614C3B13B00CD26E1 /* README.md in Resources */,
+				A21F8EE714C3B13B00CD26E1 /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A205A05214941DA4006963B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A205A06714941DA5006963B2 /* main.m in Sources */,
+				A205A06B14941DA5006963B2 /* AppDelegate.m in Sources */,
+				A205A07814941E24006963B2 /* RootViewController.m in Sources */,
+				A2E4D73D1494320700E41CD4 /* curveMath.m in Sources */,
+				A21F0F7E14955A7300443375 /* CurveDetailViewController.m in Sources */,
+				A2887395149B1E03000F2780 /* EditCurveViewController.m in Sources */,
+				A2AF463D14B348C300D2D0A8 /* PointCell.m in Sources */,
+				A2A443C414C28B4B0033B936 /* CurveArray.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A205A06314941DA5006963B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A205A06414941DA5006963B2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A205A06C14941DA5006963B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "CorePlot-Framework/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "CorePlot-Framework/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A205A06D14941DA5006963B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "CorePlot-Framework/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "CorePlot-Framework/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A205A06F14941DA5006963B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Curve/Curve-Prefix.pch";
+				INFOPLIST_FILE = "Curve/Curve-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A205A07014941DA5006963B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Curve/Curve-Prefix.pch";
+				INFOPLIST_FILE = "Curve/Curve-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A205A05014941DA4006963B2 /* Build configuration list for PBXProject "Curve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A205A06C14941DA5006963B2 /* Debug */,
+				A205A06D14941DA5006963B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A205A06E14941DA5006963B2 /* Build configuration list for PBXNativeTarget "Curve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A205A06F14941DA5006963B2 /* Debug */,
+				A205A07014941DA5006963B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A205A04D14941DA4006963B2 /* Project object */;
+}
