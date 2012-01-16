@@ -23,7 +23,6 @@
 		A21F0F7F14955A7300443375 /* CurveDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */; };
 		A21F8EDF14C3ADAD00CD26E1 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A21F8EDC14C3AC7800CD26E1 /* libCorePlot-CocoaTouch.a */; };
 		A21F8EE414C3B13B00CD26E1 /* CorePlot-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */; };
-		A21F8EE514C3B13B00CD26E1 /* README in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE114C3B13B00CD26E1 /* README */; };
 		A21F8EE614C3B13B00CD26E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE214C3B13B00CD26E1 /* README.md */; };
 		A21F8EE714C3B13B00CD26E1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE314C3B13B00CD26E1 /* README.txt */; };
 		A25F19E61495DE240072E443 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A25F19E51495DE240072E443 /* QuartzCore.framework */; };
@@ -68,7 +67,6 @@
 		A21F0F7C14955A7300443375 /* CurveDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CurveDetailViewController.m; path = ViewControllers/CurveDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurveDetailViewController.xib; path = Curve/Views/CurveDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CorePlot-License.txt"; sourceTree = "<group>"; };
-		A21F8EE114C3B13B00CD26E1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A21F8EE214C3B13B00CD26E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A21F8EE314C3B13B00CD26E1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		A25F19E51495DE240072E443 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */,
-				A21F8EE114C3B13B00CD26E1 /* README */,
 				A21F8EE214C3B13B00CD26E1 /* README.md */,
 				A21F8EE314C3B13B00CD26E1 /* README.txt */,
 			);
@@ -319,7 +316,6 @@
 				A2887396149B1E03000F2780 /* EditCurveViewController.xib in Resources */,
 				A2AF463E14B348C300D2D0A8 /* PointCell.xib in Resources */,
 				A21F8EE414C3B13B00CD26E1 /* CorePlot-License.txt in Resources */,
-				A21F8EE514C3B13B00CD26E1 /* README in Resources */,
 				A21F8EE614C3B13B00CD26E1 /* README.md in Resources */,
 				A21F8EE714C3B13B00CD26E1 /* README.txt in Resources */,
 			);
