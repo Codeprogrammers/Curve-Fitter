@@ -48,6 +48,6 @@
 - (IBAction)shouldAllowDone:(id)sender;
 - (IBAction)updateTitle:(id)sender;
 - (IBAction)curveNameDidFinishedit:(id)sender;
-
+- (IBAction)updatePoint:(id)sender;
 
 @end

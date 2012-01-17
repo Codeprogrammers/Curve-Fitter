@@ -176,6 +176,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     currentCurve.curveName = self.curveName.text;
 }
 
+- (IBAction)updatePoint:(id)sender
+{
+    
+    NSLog(@"Point has been called");
+    if([sender isKindOfClass:[UITextField class]])
+    {
+        NSLog(@"The Sender of this object is a UITextFeild!!");
+        ((UITextField *) sender).text = @"Hello WORLD!";
+    }
+}
 
 #pragma mark -
 #pragma mark UITextFieldDelegate methods
