@@ -114,30 +114,41 @@
 
 - (void)addPointX:(NSNumber *) newX andPointY:(NSNumber *) newY
 {
+    //1) get current highest point (x and y) and current lowest point (x and y); after input of each point
+    //2) insert new points in their proper place in the array (sort by lowest to highest)
+    
     if([xData count] == 0 && [yData count] == 0)
     {
         lowX = newX;
         highX = newX;
         lowY = newY;
         highY = newY;
+    } else {//entry of at least 2nd point and on:
+        //is new x a low?
+        if( newX < lowX )
+        {
+            lowX = newX;
+            lowY = newY;
+        } else
+        if( newX > highX )
+        {
+            highX = newX;
+            highY = newY;
+        } else
+        if( newX == highX || newX == lowX )
+        {
+            //if newX is equal to highX or lowX not a 1-to-1 function; throw error.
+        } else
+        {
+            //if newX is just in the middle somewhere; do nothing.
+        }
     }
     
-    if(newX < lowX)
-    {
-        lowX = newX;
-    }
-    if(newX > highX)
-    {
-        highX = newX;
-    }
-    if(newY < lowY)
-    {
-        lowY = newY;
-    }
-    if(newY > highY)
-    {
-        highY = newY;
-    }
+    //print out using nslog new x, high x, and low x:
+    NSLog(@"###NEW_PRINT###");      //new print marker..
+    NSLog(@"New  X at %i: ", newX); //newX..
+    NSLog(@"High X at %i: ", highX);//highX..
+    NSLog(@"Low  X at %i: ", lowX); //lowX..
     
     [xData addObject: newX];
     [yData addObject: newY];
