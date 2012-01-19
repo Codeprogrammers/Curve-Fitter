@@ -189,9 +189,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     NSLog(@"Point has been called");
     if([sender isKindOfClass:[UITextField class]])
     {
+        NSNumberFormatter *string2NSNumber = [[NSNumberFormatter alloc] init];
+        [string2NSNumber setFormatterBehavior: NSNumberFormatterBehavior10_4];
+        [string2NSNumber setFormatterBehavior:NSNumberFormatterDecimalStyle];
+        
         NSLog(@"The Sender of this object is a UITextFeild!!");
         //((UITextField *) sender).text = @"Hello WORLD!";
-       [curveLists.curveListObjects replaceObjectAtIndex:((UITextField *) sender).tag withObject:((UITextField *) sender).text];
+        NSLog(@"Text to insert: %@", ((UITextField *) sender).text);
+        //[curveLists.curveListObjects replaceObjectAtIndex:((UITextField *) sender).tag withObject:((UITextField *) sender).text];
+        [curveLists.curveListObjects replaceObjectAtIndex:((UITextField *) sender).tag withObject:[string2NSNumber numberFromString: ((UITextField *) sender).text]];
     }
 }
 
