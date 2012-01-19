@@ -124,31 +124,51 @@
         lowY = newY;
         highY = newY;
     } else {//entry of at least 2nd point and on:
-        //is new x a low?
-        if( newX < lowX )
+        //x:
+        if( newX < lowX )//if lowest..
         {
             lowX = newX;
-            lowY = newY;
         } else
-        if( newX > highX )
+        if( newX > highX )//if highest..
         {
             highX = newX;
-            highY = newY;
         } else
-        if( newX == highX || newX == lowX )
+        if( newX == highX || newX == lowX )//if equal..
         {
             //if newX is equal to highX or lowX not a 1-to-1 function; throw error.
-        } else
+        } else//if in the middle..
         {
             //if newX is just in the middle somewhere; do nothing.
         }
+        //y:
+        if( newY < lowY )//if lowest..
+        {
+            lowY = newY;
+        } else
+        if( newY > highY )//if highest..
+        {
+            highY = newY;
+        } else
+        if( newY == highY || newY == lowY )//if equal..
+        {
+            //if newY is equal to highY or lowY not a 1-to-1 function; throw error.
+        } else//if in the middle..
+        {
+            //if newY is just in the middle somewhere; do nothing.
+        }
     }
     
-    //print out using nslog new x, high x, and low x:
+    //print out using nslog new x and y, high x and y, and low x and y:
     NSLog(@"###NEW_PRINT###");      //new print marker..
-    NSLog(@"New  X at %i: ", newX); //newX..
-    NSLog(@"High X at %i: ", highX);//highX..
-    NSLog(@"Low  X at %i: ", lowX); //lowX..
+    //x:
+    NSLog(@"New  X at %@: ", newX); //newX..
+    NSLog(@"High X at %@: ", highX);//highX..
+    NSLog(@"Low  X at %@: ", lowX); //lowX..
+    //y:
+    NSLog(@"New  Y at %@: ", newY); //newY..
+    NSLog(@"High Y at %@: ", highY);//highY..
+    NSLog(@"Low  Y at %@: ", lowY); //lowY..
+    
     
     [xData addObject: newX];
     [yData addObject: newY];

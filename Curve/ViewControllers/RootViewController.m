@@ -277,6 +277,7 @@
                              [NSNumber numberWithFloat:200], nil];    
     
     curveMath *curve1 = [[curveMath alloc] initWithName:@"Curve #1" withXPoints:curvex andwithYPoints:curvey];
+    
     curvex = [[NSMutableArray alloc] init];
     for (int i=0; i<40; i++) {
         NSNumber *num = [NSNumber numberWithFloat:i];
@@ -362,6 +363,12 @@
     curveMath *curve6 = [[curveMath alloc] initWithName:@"Curve #6"];
     curveMath *curve7 = [[curveMath alloc] initWithName:@"Curve #7"];
     curveMath *curve8 = [[curveMath alloc] initWithName:@"Curve #8"];
+    curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
+    [curve9 addPointX:[NSNumber numberWithInt:0] andPointY:[NSNumber numberWithInt:100]];
+    [curve9 addPointX:[NSNumber numberWithInt:10] andPointY:[NSNumber numberWithInt:200]];
+    [curve9 addPointX:[NSNumber numberWithInt:20] andPointY:[NSNumber numberWithInt:300]];
+    [curve9 addPointX:[NSNumber numberWithInt:30] andPointY:[NSNumber numberWithInt:400]];
+    
     
     curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, nil];
 }
