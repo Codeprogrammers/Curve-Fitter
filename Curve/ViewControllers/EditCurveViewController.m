@@ -109,8 +109,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (BOOL)textView:(UITextView *)txtView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if( [text rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location == NSNotFound ) {
+- (BOOL)textView:(UITextView *)txtView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text 
+    {
+    if( [text rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location == NSNotFound )
+    {
         return YES;
     }
     
@@ -140,6 +142,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     static NSString *CellIdentifier = @"Cell";
     
+    NSLog(@"Creating Cell Row: %i", indexPath.row + 1);
     PointCell *cell = (PointCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil)
@@ -161,6 +164,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             cell.yPoint.text =  [NSString stringWithFormat:@"%@", 
                                  [self.currentCurve.yData objectAtIndex: [indexPath row]]
                                  ];
+        
+        cell.xPoint.tag = indexPath.row + 1;
+        cell.yPoint.tag = indexPath.row + 1;
     }
 
 
@@ -176,6 +182,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     currentCurve.curveName = self.curveName.text;
 }
 
+
 - (IBAction)updatePoint:(id)sender
 {
     
@@ -183,7 +190,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     if([sender isKindOfClass:[UITextField class]])
     {
         NSLog(@"The Sender of this object is a UITextFeild!!");
-        ((UITextField *) sender).text = @"Hello WORLD!";
+        //((UITextField *) sender).text = @"Hello WORLD!";
+       [curveLists.curveListObjects replaceObjectAtIndex:((UITextField *) sender).tag withObject:((UITextField *) sender).text];
     }
 }
 
