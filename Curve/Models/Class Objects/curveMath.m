@@ -114,52 +114,8 @@
 
 - (void)addPointX:(NSNumber *) newX andPointY:(NSNumber *) newY
 {
-    //1) get current highest point (x and y) and current lowest point (x and y); after input of each point
-    //2) insert new points in their proper place in the array (sort by lowest to highest)
-    
-    if([xData count] == 0 && [yData count] == 0)
-    {
-        lowX = newX;
-        highX = newX;
-        lowY = newY;
-        highY = newY;
-    } else {//entry of at least 2nd point and on:
-        //x:
-        if( newX < lowX )//if lowest..
-        {
-            lowX = newX;
-        } else
-        if( newX > highX )//if highest..
-        {
-            highX = newX;
-        } else
-        if( newX == highX || newX == lowX )//if equal..
-        {
-            //if newX is equal to highX or lowX not a 1-to-1 function; throw error.
-        } else//if in the middle..
-        {
-            //if newX is just in the middle somewhere; do nothing.
-        }
-        //y:
-        if( newY < lowY )//if lowest..
-        {
-            lowY = newY;
-        } else
-        if( newY > highY )//if highest..
-        {
-            highY = newY;
-        } else
-        if( newY == highY || newY == lowY )//if equal..
-        {
-            //if newY is equal to highY or lowY not a 1-to-1 function; throw error.
-        } else//if in the middle..
-        {
-            //if newY is just in the middle somewhere; do nothing.
-        }
-    }
-    
     //print out using nslog new x and y, high x and y, and low x and y:
-    NSLog(@"###NEW_PRINT###");      //new print marker..
+    NSLog(@"###NEW_PRINT BEFORE###");      //new print marker..
     //x:
     NSLog(@"New  X at %@: ", newX); //newX..
     NSLog(@"High X at %@: ", highX);//highX..
@@ -169,9 +125,80 @@
     NSLog(@"High Y at %@: ", highY);//highY..
     NSLog(@"Low  Y at %@: ", lowY); //lowY..
     
+    //1) get current highest point (x and y) and current lowest point (x and y); after input of each point
+    //2) insert new points in their proper place in the array (sort by lowest to highest)
+
     
-    [xData addObject: newX];
-    [yData addObject: newY];
+    if([self.xData count] == 0 && [self.yData count] == 0)
+    {
+        NSLog(@"!!!NO Data in Array yet!!!");
+        lowX = newX;
+        highX = newX;
+        lowY = newY;
+        highY = newY;
+    } 
+    else 
+    {//entry of at least 2nd point and on:
+        //x:
+        if( newX < self.lowX )//if lowest..
+        {
+            NSLog(@"####NEW LOW X####");
+            self.lowX = newX;
+        } 
+        else
+        if( newX > self.highX )//if highest..
+        {
+            NSLog(@"####New HIGH X####");
+            self.highX = newX;
+        } 
+        else
+        if( newX == self.highX || newX == lowX )//if equal..
+        {
+            //if newX is equal to highX or lowX not a 1-to-1 function; throw error.
+            NSLog(@"ERROR THROW, NOT ONE TO ONE");
+        } 
+        else//if in the middle..
+        {
+            //if newX is just in the middle somewhere; do nothing.
+            NSLog(@"Simply add points");
+        }
+        //y:
+        if( newY < self.lowY )//if lowest..
+        {
+            NSLog(@"###New Lowest Y###");
+            self.lowY = newY;
+        } 
+        else
+        if( newY > self.highY )//if highest..
+        {
+            NSLog(@"###NEW Highest Y###");
+            self.highY = newY;
+        } 
+        else
+        if( newY == self.highY || newY == self.lowY )//if equal..
+        {
+            //if newY is equal to highY or lowY not a 1-to-1 function; throw error.
+        } 
+        else//if in the middle..
+        {
+            //if newY is just in the middle somewhere; do nothing.
+        }
+    }
+    
+    //print out using nslog new x and y, high x and y, and low x and y:
+    NSLog(@"###NEW_PRINT AFTER###");      //new print marker..
+    //x:
+    NSLog(@"New  X at %@: ", newX); //newX..
+    NSLog(@"High X at %@: ", self.highX);//highX..
+    NSLog(@"Low  X at %@: ", self.lowX); //lowX..
+    //y:
+    NSLog(@"New  Y at %@: ", newY); //newY..
+    NSLog(@"High Y at %@: ", self.highY);//highY..
+    NSLog(@"Low  Y at %@: ", self.lowY); //lowY..
+    
+    
+    [self.xData addObject: newX];
+    [self.yData addObject: newY];
 }
 
 @end

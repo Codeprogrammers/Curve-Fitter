@@ -29,13 +29,13 @@
 @property (nonatomic, retain) NSString *curveName;
 @property (nonatomic, retain) NSString *function;
 
-@property (nonatomic, retain) NSMutableArray *xData;
-@property (nonatomic, retain) NSMutableArray *yData;
+@property (nonatomic, strong) NSMutableArray *xData;
+@property (nonatomic, strong) NSMutableArray *yData;
 
-@property (nonatomic, retain) NSNumber *lowX;
-@property (nonatomic, retain) NSNumber *lowY;
-@property (nonatomic, retain) NSNumber *highX;
-@property (nonatomic, retain) NSNumber *highY;
+@property (nonatomic, strong) NSNumber *lowX;
+@property (nonatomic, strong) NSNumber *lowY;
+@property (nonatomic, strong) NSNumber *highX;
+@property (nonatomic, strong) NSNumber *highY;
 
 @property (nonatomic) double leftx;
 @property (nonatomic) double lefty;
