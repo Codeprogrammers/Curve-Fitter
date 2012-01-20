@@ -29,8 +29,8 @@
 @property (nonatomic, retain) NSString *curveName;
 @property (nonatomic, retain) NSString *function;
 
-@property (copy,readwrite) NSArray *xData;
-@property (copy,readwrite) NSArray *yData;
+@property (nonatomic, retain) NSMutableArray *xData;
+@property (nonatomic, retain) NSMutableArray *yData;
 
 @property (nonatomic, retain) NSNumber *lowX;
 @property (nonatomic, retain) NSNumber *lowY;
@@ -45,8 +45,8 @@
 -(void)fitCurve;
 -(curveMath *) initWithName: (NSString *) newName;
 -(curveMath *) initWithName: (NSString *) newName 
-                withXPoints: (NSArray *) newX 
-             andwithYPoints: (NSArray *) newY;
+                withXPoints: (NSMutableArray *) newX 
+             andwithYPoints: (NSMutableArray *) newY;
 
 
 - (void)addPointX:(NSNumber *) newX andPointY:(NSNumber *) newY;

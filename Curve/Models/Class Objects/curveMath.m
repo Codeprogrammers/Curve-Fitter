@@ -24,8 +24,8 @@
 }
 
 -(curveMath *) initWithName: (NSString *) newName 
-                withXPoints: (NSArray *) newX 
-             andwithYPoints: (NSArray *) newY
+                withXPoints: (NSMutableArray *) newX 
+             andwithYPoints: (NSMutableArray *) newY
 {
     self.curveName = newName;
     self.xData = newX;
