@@ -28,9 +28,8 @@
     
     curveMath *currentCurve;
     BOOL editingCurve;
-    
-    
 }
+
 @property (nonatomic, retain) IBOutlet UINavigationBar *modalNavigationBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *doneButton;
@@ -41,7 +40,6 @@
 
 @property (nonatomic) BOOL editingCurve;
 @property (nonatomic, retain) curveMath *currentCurve;
-
 
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)donePressed:(id)sender;
