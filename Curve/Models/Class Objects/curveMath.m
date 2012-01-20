@@ -17,8 +17,40 @@
 @synthesize leftx, lefty, rightx, righty;
 @synthesize lowX, lowY, highX, highY;
 
+-(id)init
+{
+    self = [super init];
+    if(self)
+    {
+        xData     = [[NSMutableArray alloc] init];
+        yData     = [[NSMutableArray alloc] init];
+        lowX      = [[NSNumber alloc] init];
+        lowY      = [[NSNumber alloc] init];
+        highX     = [[NSNumber alloc] init];
+        highY     = [[NSNumber alloc] init];
+        curveName = [[NSString alloc] init];
+        function  = [[NSString alloc] init];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [xData release];
+    [yData release];
+    [lowX release];
+    [lowY release];
+    [highX release];
+    [highY release];
+    [curveName release];
+    [function release];
+    [super dealloc];
+}
+
+
 -(curveMath *) initWithName: (NSString *) newName
 {
+    [self init];
     self.curveName = newName;
     return self;
 }
@@ -27,6 +59,7 @@
                 withXPoints: (NSMutableArray *) newX 
              andwithYPoints: (NSMutableArray *) newY
 {
+    [self init];
     self.curveName = newName;
     self.xData = newX;
     self.yData = newY;
@@ -195,8 +228,7 @@
     NSLog(@"New  Y at %@: ", newY); //newY..
     NSLog(@"High Y at %@: ", self.highY);//highY..
     NSLog(@"Low  Y at %@: ", self.lowY); //lowY..
-    
-    
+        
     [self.xData addObject: newX];
     [self.yData addObject: newY];
 }

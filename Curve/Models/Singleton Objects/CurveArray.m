@@ -50,9 +50,8 @@ static CurveArray *shared = nil;
     self = [super init];
     
     if (self) {
-        // Work your initialising magic here as you normally would
+        curveListObjects = [[NSMutableArray alloc] init];
     }
-    
     return self;
 }
 
@@ -60,7 +59,7 @@ static CurveArray *shared = nil;
 // However, I like to include it so I know what memory I'm using (and incase, one day, I convert away from Singleton).
 -(void)dealloc
 {
-    // I'm never called!
+    [curveListObjects release];
     [super dealloc];
 }
 

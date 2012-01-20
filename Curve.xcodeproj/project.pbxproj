@@ -173,8 +173,8 @@
 			children = (
 				A205A07714941E24006963B2 /* RootViewController.xib */,
 				A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */,
-				A2887394149B1E03000F2780 /* EditCurveViewController.xib */,
 				A2AF463C14B348C300D2D0A8 /* PointCell.xib */,
+				A2887394149B1E03000F2780 /* EditCurveViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";

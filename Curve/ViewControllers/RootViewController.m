@@ -372,6 +372,22 @@
     [curve9 addPointX:[NSNumber numberWithInt:10] andPointY:[NSNumber numberWithInt:200]];
     [curve9 addPointX:[NSNumber numberWithInt:20] andPointY:[NSNumber numberWithInt:300]];
     [curve9 addPointX:[NSNumber numberWithInt:30] andPointY:[NSNumber numberWithInt:400]];
+    [curve9 addPointX:[NSNumber numberWithInt:40] andPointY:[NSNumber numberWithInt:500]];
+    [curve9 addPointX:[NSNumber numberWithInt:50] andPointY:[NSNumber numberWithInt:600]];
+    [curve9 addPointX:[NSNumber numberWithInt:60] andPointY:[NSNumber numberWithInt:700]];
+    [curve9 addPointX:[NSNumber numberWithInt:70] andPointY:[NSNumber numberWithInt:800]];
+    [curve9 addPointX:[NSNumber numberWithInt:80] andPointY:[NSNumber numberWithInt:900]];
+    [curve9 addPointX:[NSNumber numberWithInt:90] andPointY:[NSNumber numberWithInt:1000]];
+    [curve9 addPointX:[NSNumber numberWithInt:100] andPointY:[NSNumber numberWithInt:1100]];
+    [curve9 addPointX:[NSNumber numberWithInt:110] andPointY:[NSNumber numberWithInt:1200]];
+    [curve9 addPointX:[NSNumber numberWithInt:120] andPointY:[NSNumber numberWithInt:1300]];
+    [curve9 addPointX:[NSNumber numberWithInt:130] andPointY:[NSNumber numberWithInt:1400]];
+    [curve9 addPointX:[NSNumber numberWithInt:140] andPointY:[NSNumber numberWithInt:1500]];
+    [curve9 addPointX:[NSNumber numberWithInt:150] andPointY:[NSNumber numberWithInt:1600]];
+    [curve9 addPointX:[NSNumber numberWithInt:160] andPointY:[NSNumber numberWithInt:1700]];
+    [curve9 addPointX:[NSNumber numberWithInt:170] andPointY:[NSNumber numberWithInt:1800]];
+    [curve9 addPointX:[NSNumber numberWithInt:180] andPointY:[NSNumber numberWithInt:1900]];
+    [curve9 addPointX:[NSNumber numberWithInt:190] andPointY:[NSNumber numberWithInt:2000]];
     
     
     curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, curve9, nil];
