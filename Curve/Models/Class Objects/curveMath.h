@@ -24,6 +24,8 @@
     double lefty;
     double rightx;
     double righty;
+    
+    BOOL isNew;
 }
 
 @property (nonatomic, retain) NSString *curveName;
@@ -36,6 +38,8 @@
 @property (nonatomic, strong) NSNumber *lowY;
 @property (nonatomic, strong) NSNumber *highX;
 @property (nonatomic, strong) NSNumber *highY;
+
+@property (nonatomic) BOOL isNew;
 
 @property (nonatomic) double leftx;
 @property (nonatomic) double lefty;

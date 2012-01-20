@@ -142,7 +142,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     static NSString *CellIdentifier = @"Cell";
     
-    NSLog(@"Creating Cell Row: %i", indexPath.row + 1);
+    //NSLog(@"Creating Cell Row: %i", indexPath.row + 1);
     PointCell *cell = (PointCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil)

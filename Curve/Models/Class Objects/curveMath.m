@@ -16,6 +16,7 @@
 @synthesize yData;
 @synthesize leftx, lefty, rightx, righty;
 @synthesize lowX, lowY, highX, highY;
+@synthesize isNew;
 
 -(id)init
 {
@@ -162,13 +163,14 @@
     //2) insert new points in their proper place in the array (sort by lowest to highest)
 
     
-    if([self.xData count] == 0 && [self.yData count] == 0)
+    if(self.isNew)
     {
         NSLog(@"!!!NO Data in Array yet!!!");
-        lowX = newX;
-        highX = newX;
-        lowY = newY;
-        highY = newY;
+        self.lowX = newX;
+        self.highX = newX;
+        self.lowY = newY;
+        self.highY = newY;
+        self.isNew = TRUE;
     } 
     else 
     {//entry of at least 2nd point and on:
