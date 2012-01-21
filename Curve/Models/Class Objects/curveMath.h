@@ -15,10 +15,11 @@
     NSString *function;
     NSMutableArray *xData;
     NSMutableArray *yData;
-    NSNumber *lowX;
-    NSNumber *lowY;
-    NSNumber *highX;
-    NSNumber *highY;
+    
+    double lowX;
+    double lowY;
+    double highX;
+    double highY;
     
     double leftx;
     double lefty;
@@ -34,10 +35,10 @@
 @property (nonatomic, strong) NSMutableArray *xData;
 @property (nonatomic, strong) NSMutableArray *yData;
 
-@property (nonatomic, strong) NSNumber *lowX;
-@property (nonatomic, strong) NSNumber *lowY;
-@property (nonatomic, strong) NSNumber *highX;
-@property (nonatomic, strong) NSNumber *highY;
+@property (nonatomic) double lowX;
+@property (nonatomic) double lowY;
+@property (nonatomic) double highX;
+@property (nonatomic) double highY;
 
 @property (nonatomic) BOOL isNew;
 
@@ -53,5 +54,5 @@
              andwithYPoints: (NSMutableArray *) newY;
 
 
-- (void)addPointX:(NSNumber *) newX andPointY:(NSNumber *) newY;
+- (void)addPointX:(double) newX andPointY:(double) newY;
 @end

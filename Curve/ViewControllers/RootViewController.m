@@ -368,7 +368,13 @@
     curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
     
     
-    [curve9 addPointX:[NSNumber numberWithInt:0] andPointY:[NSNumber numberWithInt:100]];
+    
+    [curve9 addPointX:0 andPointY:100];
+    [curve9 addPointX:10 andPointY:200];
+    [curve9 addPointX:20 andPointY:300];
+    [curve9 addPointX:30 andPointY:500];
+    [curve9 addPointX: -2 andPointY:560];
+    /*
     [curve9 addPointX:[NSNumber numberWithInt:10] andPointY:[NSNumber numberWithInt:200]];
     [curve9 addPointX:[NSNumber numberWithInt:20] andPointY:[NSNumber numberWithInt:300]];
     [curve9 addPointX:[NSNumber numberWithInt:30] andPointY:[NSNumber numberWithInt:400]];
@@ -388,6 +394,7 @@
     [curve9 addPointX:[NSNumber numberWithInt:170] andPointY:[NSNumber numberWithInt:1800]];
     [curve9 addPointX:[NSNumber numberWithInt:180] andPointY:[NSNumber numberWithInt:1900]];
     [curve9 addPointX:[NSNumber numberWithInt:190] andPointY:[NSNumber numberWithInt:2000]];
+     */
     
     
     curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, curve9, nil];

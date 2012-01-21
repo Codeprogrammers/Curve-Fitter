@@ -25,10 +25,7 @@
     {
         xData     = [[NSMutableArray alloc] init];
         yData     = [[NSMutableArray alloc] init];
-        lowX      = [[NSNumber alloc] init];
-        lowY      = [[NSNumber alloc] init];
-        highX     = [[NSNumber alloc] init];
-        highY     = [[NSNumber alloc] init];
+
         curveName = [[NSString alloc] init];
         function  = [[NSString alloc] init];
     }
@@ -39,10 +36,7 @@
 {
     [xData release];
     [yData release];
-    [lowX release];
-    [lowY release];
-    [highX release];
-    [highY release];
+
     [curveName release];
     [function release];
     [super dealloc];
@@ -146,18 +140,18 @@
     function = [NSString stringWithFormat:@"f(x) = %fx + %f",m,b];
 }
 
-- (void)addPointX:(NSNumber *) newX andPointY:(NSNumber *) newY
+- (void)addPointX:(double) newX andPointY:(double) newY
 {
     //print out using nslog new x and y, high x and y, and low x and y:
     NSLog(@"###NEW_PRINT BEFORE###");      //new print marker..
     //x:
-    NSLog(@"New  X at %@: ", newX); //newX..
-    NSLog(@"High X at %@: ", highX);//highX..
-    NSLog(@"Low  X at %@: ", lowX); //lowX..
+    NSLog(@"New  X at %f: ", newX); //newX..
+    NSLog(@"High X at %f: ", self.highX);//highX..
+    NSLog(@"Low  X at %f: ", self.lowX); //lowX..
     //y:
-    NSLog(@"New  Y at %@: ", newY); //newY..
-    NSLog(@"High Y at %@: ", highY);//highY..
-    NSLog(@"Low  Y at %@: ", lowY); //lowY..
+    NSLog(@"New  Y at %f: ", newY); //newY..
+    NSLog(@"High Y at %f: ", self.highY);//highY..
+    NSLog(@"Low  Y at %f: ", self.lowY); //lowY..
     
     //1) get current highest point (x and y) and current lowest point (x and y); after input of each point
     //2) insert new points in their proper place in the array (sort by lowest to highest)
@@ -223,16 +217,16 @@
     //print out using nslog new x and y, high x and y, and low x and y:
     NSLog(@"###NEW_PRINT AFTER###");      //new print marker..
     //x:
-    NSLog(@"New  X at %@: ", newX); //newX..
-    NSLog(@"High X at %@: ", self.highX);//highX..
-    NSLog(@"Low  X at %@: ", self.lowX); //lowX..
+    NSLog(@"New  X at %f: ", newX); //newX..
+    NSLog(@"High X at %f: ", self.highX);//highX..
+    NSLog(@"Low  X at %f: ", self.lowX); //lowX..
     //y:
-    NSLog(@"New  Y at %@: ", newY); //newY..
-    NSLog(@"High Y at %@: ", self.highY);//highY..
-    NSLog(@"Low  Y at %@: ", self.lowY); //lowY..
+    NSLog(@"New  Y at %f: ", newY); //newY..
+    NSLog(@"High Y at %f: ", self.highY);//highY..
+    NSLog(@"Low  Y at %f: ", self.lowY); //lowY..
         
-    [self.xData addObject: newX];
-    [self.yData addObject: newY];
+    [self.xData addObject: [NSNumber numberWithDouble:newX]];
+    [self.yData addObject: [NSNumber numberWithDouble:newY]];
 }
 
 @end
