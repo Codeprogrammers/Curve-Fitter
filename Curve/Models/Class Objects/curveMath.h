@@ -2,7 +2,7 @@
 //  curveMath.h
 //  Curve
 //
-//  Created by Bradley Clemetson on 12/10/11.
+//  Created by Bradley Clemetson + Bradley Clemetson on 12/10/11.
 //  Copyright (c) 2011 Codeprogrammers for Gonzaga University. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
     NSString *function;
     NSMutableArray *xData;
     NSMutableArray *yData;
-    NSMutableArray *pointData;
+    NSMutableArray *dataPoints;
     
     double lowX;
     double lowY;
@@ -35,7 +35,7 @@
 
 @property (nonatomic, strong) NSMutableArray *xData;
 @property (nonatomic, strong) NSMutableArray *yData;
-@property (nonatomic, strong) NSMutableArray *pointData;
+@property (nonatomic, strong) NSMutableArray *dataPoints;
 
 @property (nonatomic) double lowX;
 @property (nonatomic) double lowY;

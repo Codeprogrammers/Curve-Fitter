@@ -15,7 +15,7 @@
 @synthesize function;
 @synthesize xData;
 @synthesize yData;
-@synthesize pointData;
+@synthesize dataPoints;
 @synthesize leftx, lefty, rightx, righty;
 @synthesize lowX, lowY, highX, highY;
 @synthesize isNew;
@@ -27,7 +27,7 @@
     {
         xData     = [[NSMutableArray alloc] init];
         yData     = [[NSMutableArray alloc] init];
-        pointData = [[NSMutableArray alloc] init];
+        dataPoints = [[NSMutableArray alloc] init];
 
         curveName = [[NSString alloc] init];
         function  = [[NSString alloc] init];
@@ -39,7 +39,7 @@
 {
     [xData release];
     [yData release];
-    [pointData release];
+    [dataPoints release];
 
     [curveName release];
     [function release];
@@ -72,7 +72,7 @@
 {
     [self init];
     self.curveName = newName;
-    self.pointData = newPoints;
+    self.dataPoints = newPoints;
     
     [self fitCurve];
     return self;
@@ -331,9 +331,11 @@
     NSLog(@"Low  Y at %f: ", self.lowY); //lowY..
     
     PointXY *newPoint = [[PointXY alloc] init];
-    [newPoint addPointX:newX Y:newY];//add x and y coordinates to a PointXY object..
-    [self.pointData addObject:newPoint ];//add new PointXY object to point array..
-    [newPoint dealloc];
+    [newPoint setPointX:newX andPointY:newY];   //set x and y coordinates to a PointXY object..
+    [self.dataPoints addObject:newPoint ];//add new PointXY object to point array..
+    
+    [newPoint release];
+
 }
 
 @end

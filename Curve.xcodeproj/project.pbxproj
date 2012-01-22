@@ -218,10 +218,10 @@
 		A2A443C114C28B240033B936 /* Class Objects */ = {
 			isa = PBXGroup;
 			children = (
-				A2E4D73B1494320700E41CD4 /* curveMath.h */,
-				A2E4D73C1494320700E41CD4 /* curveMath.m */,
 				01FB47DB14CBBC7200D1BDA1 /* PointXY.h */,
 				01FB47DC14CBBC7200D1BDA1 /* PointXY.m */,
+				A2E4D73B1494320700E41CD4 /* curveMath.h */,
+				A2E4D73C1494320700E41CD4 /* curveMath.m */,
 			);
 			name = "Class Objects";
 			sourceTree = "<group>";

@@ -2,8 +2,8 @@
 //  PointXY.h
 //  Curve
 //
-//  Created by Nicholas Interrante on 1/21/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Nicholas Interrante + Bradley Clemetson on 1/21/12.
+//  Copyright (c) 2012 Codeprogrammers for Gonzaga University. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,12 +17,8 @@
 @property (nonatomic) double x;
 @property (nonatomic) double y;
 
--(void) setX:(double) newX;
--(void) setY:(double) newY;
--(void) addPointX:(double) newX Y:(double) newY;
-
-+(void) setX:(double) newX;
-+(void) setY:(double) newY;
-+(PointXY *) addPointX:(double) newX Y:(double) newY;
+-(void) setPointX: (double) newX;
+-(void) setPointY: (double) newY;
+-(void) setPointX: (double) newX andPointY: (double) newY;
 
 @end

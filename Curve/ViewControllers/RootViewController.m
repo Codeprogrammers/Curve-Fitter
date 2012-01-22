@@ -367,21 +367,15 @@
     curveMath *curve7 = [[curveMath alloc] initWithName:@"Curve #7"];
     curveMath *curve8 = [[curveMath alloc] initWithName:@"Curve #8"];
         
-    NSMutableArray *newPoints = [[NSMutableArray alloc] initWithObjects:
-                                 [PointXY addPointX:0 Y:100],
-                                 [PointXY addPointX:10 Y:200],
-                                 [PointXY addPointX:20 Y:300],
-                                 [PointXY addPointX:30 Y:300],
-                                 [PointXY addPointX:-2 Y:560], nil];
     
-    curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9" andPoints:newPoints];
+    curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
 
-/*
+
     [curve9 addPoint:0 :100];
     [curve9 addPoint:10 :200];
     [curve9 addPoint:20 :300];
     [curve9 addPoint:30 :500];
-    [curve9 addPoint:-2 :560];//*/
+    [curve9 addPoint:-2 :560];
 /* 
     [curve9 addPointX:0 andPointY:100];
     [curve9 addPointX:10 andPointY:200];
