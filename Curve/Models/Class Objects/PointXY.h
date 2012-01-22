@@ -10,12 +10,12 @@
 
 @interface PointXY : NSObject
 {
-    double x;
-    double y;
+    double pointX;
+    double pointY;
 }
 
-@property (nonatomic) double x;
-@property (nonatomic) double y;
+@property (nonatomic) double pointX;
+@property (nonatomic) double pointY;
 
 -(void) setPointX: (double) newX;
 -(void) setPointY: (double) newY;

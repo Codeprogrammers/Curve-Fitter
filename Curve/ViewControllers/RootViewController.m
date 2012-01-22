@@ -371,17 +371,13 @@
     curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
 
 
-    [curve9 addPoint:0 :100];
-    [curve9 addPoint:10 :200];
-    [curve9 addPoint:20 :300];
-    [curve9 addPoint:30 :500];
-    [curve9 addPoint:-2 :560];
-/* 
+
     [curve9 addPointX:0 andPointY:100];
     [curve9 addPointX:10 andPointY:200];
     [curve9 addPointX:20 andPointY:300];
     [curve9 addPointX:30 andPointY:500];
-    [curve9 addPointX: -2 andPointY:560];//*/
+    [curve9 addPointX: -2 andPointY:560];
+    
 /*
     [curve9 addPointX:[NSNumber numberWithInt:10] andPointY:[NSNumber numberWithInt:200]];
     [curve9 addPointX:[NSNumber numberWithInt:20] andPointY:[NSNumber numberWithInt:300]];

@@ -58,6 +58,5 @@
                    andPoints: (NSMutableArray *) newPoints;
 
 - (void)addPointX:(double) newX andPointY:(double) newY;
-- (void) addPoint:(double) newX :(double) newY;
 
 @end

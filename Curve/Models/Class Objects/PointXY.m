@@ -10,23 +10,26 @@
 
 @implementation PointXY
 
-@synthesize x, y;
+@synthesize pointX, pointY;
+
+
+-(void) setPointX: (double) newX andPointY: (double) newY
+{
+    self.pointX = newX;
+    self.pointY = newY;
+}
 
 -(void) setPointX:(double) newX
 {
-    self.x = newX;
+    pointX = newX;
 }
 
 -(void) setPointY:(double) newY
 {
-    self.y = newY;
+    pointY = newY;
 }
 
--(void) setPointX: (double) newX andPointY: (double) newY
-{
-    self.x = newX;
-    self.y = newY;
-}
+
 
 
 @end
