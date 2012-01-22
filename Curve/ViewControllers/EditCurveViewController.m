@@ -166,9 +166,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
             //                     [self.currentCurve.yData objectAtIndex: [indexPath row]]
             //                     ];
         
-        cell.xPoint.text = [NSString stringWithFormat:@"%f", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointX]];
-        cell.yPoint.text = [NSString stringWithFormat:@"%f", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointY]];
-        
+        cell.xPoint.text = [NSString stringWithFormat:@"%.12g", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointX]];
+        cell.yPoint.text = [NSString stringWithFormat:@"%.12g", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointY]];
         cell.xPoint.tag = indexPath.row + 1;
         cell.yPoint.tag = indexPath.row + 1;
     }
