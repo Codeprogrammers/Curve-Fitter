@@ -7,6 +7,7 @@
 //
 
 #import "EditCurveViewController.h"
+#import "PointXY.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -158,12 +159,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     else
     if (self.editingCurve == YES)
     {
-            cell.xPoint.text = [NSString stringWithFormat:@"%@", 
-                                [self.currentCurve.xData objectAtIndex: [indexPath row]]
-                                ];
-            cell.yPoint.text =  [NSString stringWithFormat:@"%@", 
-                                 [self.currentCurve.yData objectAtIndex: [indexPath row]]
-                                 ];
+            //cell.xPoint.text = [NSString stringWithFormat:@"%@", 
+            //                    [self.currentCurve.xData objectAtIndex: [indexPath row]]
+            //                    ];
+            //cell.yPoint.text =  [NSString stringWithFormat:@"%@", 
+            //                     [self.currentCurve.yData objectAtIndex: [indexPath row]]
+            //                     ];
+        
+        cell.xPoint.text = [NSString stringWithFormat:@"%f", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointX]];
+        cell.yPoint.text = [NSString stringWithFormat:@"%f", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointY]];
         
         cell.xPoint.tag = indexPath.row + 1;
         cell.yPoint.tag = indexPath.row + 1;
@@ -203,8 +207,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 	[textField resignFirstResponder];
 	return YES;
 }
-
-
 
 
 @end

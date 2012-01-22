@@ -12,6 +12,7 @@
 #import "PointCell.h"
 
 @class PointCell;
+@class PointXY;
 
 @interface EditCurveViewController : UIViewController
 {
