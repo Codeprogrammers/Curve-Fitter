@@ -17,8 +17,10 @@
 @property (nonatomic) double pointX;
 @property (nonatomic) double pointY;
 
--(void) setPointX: (double) newX;
--(void) setPointY: (double) newY;
--(void) setPointX: (double) newX andPointY: (double) newY;
+- (void) setPointX: (double) newX;
+- (bool) isValidPoint: (id) possiblePoint;
+
+- (void) setPointY: (double) newY;
+- (void) setPointX: (double) newX andPointY: (double) newY;
 
 @end

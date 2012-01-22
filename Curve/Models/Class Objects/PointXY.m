@@ -19,6 +19,18 @@
     self.pointY = newY;
 }
 
+- (bool) isValidPoint: (id) possiblePoint
+{
+    if([possiblePoint isKindOfClass:[NSNumber class]])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 -(void) setPointX:(double) newX
 {
     pointX = newX;

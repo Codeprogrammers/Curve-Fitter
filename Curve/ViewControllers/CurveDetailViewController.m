@@ -214,7 +214,7 @@
     // Add some initial data
 	NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:100];
 	NSUInteger i;
-	for ( i = 0; i < [selectedCurve.xData count]; i++ ) {
+	for ( i = 0; i < [selectedCurve.dataPoints count]; i++ ) {
         
 		id x = [NSNumber numberWithFloat:1+i*0.05];
         //id x = [selectedCurve.xData objectAtIndex:i];

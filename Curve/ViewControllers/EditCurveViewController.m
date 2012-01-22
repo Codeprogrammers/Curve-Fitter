@@ -134,7 +134,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     if (editingCurve == NO) 
         return 1;
     else
-        return [currentCurve.xData count] + 1;
+        return [currentCurve.dataPoints count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -151,7 +151,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         cell = pointCell;
         self.pointCell = nil;
     }
-    if(indexPath.row == ([self.currentCurve.xData count]))
+    if(indexPath.row == ([self.currentCurve.dataPoints count]))
     {
 
     }

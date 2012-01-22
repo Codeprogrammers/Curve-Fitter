@@ -13,8 +13,6 @@
 
 @synthesize curveName;
 @synthesize function;
-@synthesize xData;
-@synthesize yData;
 @synthesize dataPoints;
 @synthesize leftx, lefty, rightx, righty;
 @synthesize lowX, lowY, highX, highY;
@@ -25,8 +23,6 @@
     self = [super init];
     if(self)
     {
-        xData     = [[NSMutableArray alloc] init];
-        yData     = [[NSMutableArray alloc] init];
         dataPoints = [[NSMutableArray alloc] init];
 
         curveName = [[NSString alloc] init];
@@ -37,8 +33,6 @@
 
 - (void)dealloc
 {
-    [xData release];
-    [yData release];
     [dataPoints release];
 
     [curveName release];
@@ -60,8 +54,10 @@
 {
     [self init];
     self.curveName = newName;
-    self.xData = newXs;
-    self.yData = newYs;
+    
+    //Need a alternative to these
+    //self.xData = newXs;
+    //self.yData = newYs;
     
     //[self fitCurve];
     return self;
@@ -89,22 +85,28 @@
     double m;
     double b;
     
-    numpoints = xData.count;
+    numpoints = dataPoints.count;
     sumxy = 0;
-    for(NSUInteger i = 0; i < numpoints; i++) {
-        sumxy = sumxy + ((int)[xData objectAtIndex:i] * (int)[yData objectAtIndex:i]);
+    for(NSUInteger i = 0; i < numpoints; i++) 
+    {
+        //sumxy = sumxy + ((int)[xData objectAtIndex:i] * (int)[yData objectAtIndex:i]);
+        sumxy = sumxy + ((int) [[dataPoints objectAtIndex: i] pointX]) * ((int) [[dataPoints objectAtIndex: i] pointY]);
     }
     sumx = 0;
-    for(NSUInteger i = 0; i < numpoints; i++) {
-        sumx = sumx + (int)[xData objectAtIndex:i];
+    for(NSUInteger i = 0; i < numpoints; i++) 
+    {
+        //sumx = sumx + (int)[xData objectAtIndex:i];
+        sumx = sumx + ((int) [[dataPoints objectAtIndex:i] pointX]);
     }
     sumy = 0;
     for(NSUInteger i = 0; i < numpoints; i++) {
-        sumy = sumy + (int)[yData objectAtIndex:i];
+       //sumy = sumy + (int)[yData objectAtIndex:i];
+        sumy = sumy + ((int) [[dataPoints objectAtIndex: i] pointY]);
     }
     sumx2 = 0;
     for(NSUInteger i = 0; i < numpoints; i++) {
-        sumx2 = sumx2 + ((int)[xData objectAtIndex:i]*(int)[xData objectAtIndex:i]);
+        //sumx2 = sumx2 + ((int)[xData objectAtIndex:i]*(int)[xData objectAtIndex:i]);
+        sumx2 = sumx2 + (((int) [[dataPoints objectAtIndex: i] pointX]) * ((int) [[dataPoints objectAtIndex: i] pointY]));
     }
     
     m = ((numpoints * sumxy) - (sumx * sumy))/ ((numpoints * sumx2) - (sumx * sumx));
@@ -244,7 +246,7 @@
     
     PointXY *newPoint = [[PointXY alloc] init];
     [newPoint setPointX: newX andPointY: newY];  //set x and y coordinates to a PointXY object..
-    [self.dataPoints addObject:newPoint ];//add new PointXY object to point array..
+    [dataPoints addObject:newPoint ];//add new PointXY object to point array..
     [newPoint release];
 
 }

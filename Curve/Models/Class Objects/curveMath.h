@@ -13,8 +13,7 @@
     NSString *curveName;
     
     NSString *function;
-    NSMutableArray *xData;
-    NSMutableArray *yData;
+
     NSMutableArray *dataPoints;
     
     double lowX;
@@ -33,8 +32,7 @@
 @property (nonatomic, retain) NSString *curveName;
 @property (nonatomic, retain) NSString *function;
 
-@property (nonatomic, strong) NSMutableArray *xData;
-@property (nonatomic, strong) NSMutableArray *yData;
+
 @property (nonatomic, strong) NSMutableArray *dataPoints;
 
 @property (nonatomic) double lowX;
