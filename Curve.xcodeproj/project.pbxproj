@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01FB47DD14CBBC7200D1BDA1 /* PointXY.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB47DC14CBBC7200D1BDA1 /* PointXY.m */; };
 		A20372041495C9A000E65FFC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372031495C9A000E65FFC /* Default@2x.png */; };
 		A20372071495C9A200E65FFC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372061495C9A200E65FFC /* Default.png */; };
 		A20372091495C9A500E65FFC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372081495C9A500E65FFC /* icon.png */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01FB47DB14CBBC7200D1BDA1 /* PointXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointXY.h; path = "Models/Class Objects/PointXY.h"; sourceTree = "<group>"; };
+		01FB47DC14CBBC7200D1BDA1 /* PointXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointXY.m; path = "Models/Class Objects/PointXY.m"; sourceTree = "<group>"; };
 		A20372031495C9A000E65FFC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A20372061495C9A200E65FFC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A20372081495C9A500E65FFC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 			children = (
 				A2E4D73B1494320700E41CD4 /* curveMath.h */,
 				A2E4D73C1494320700E41CD4 /* curveMath.m */,
+				01FB47DB14CBBC7200D1BDA1 /* PointXY.h */,
+				01FB47DC14CBBC7200D1BDA1 /* PointXY.m */,
 			);
 			name = "Class Objects";
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				A2887395149B1E03000F2780 /* EditCurveViewController.m in Sources */,
 				A2AF463D14B348C300D2D0A8 /* PointCell.m in Sources */,
 				A2A443C414C28B4B0033B936 /* CurveArray.m in Sources */,
+				01FB47DD14CBBC7200D1BDA1 /* PointXY.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
