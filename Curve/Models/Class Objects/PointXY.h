@@ -21,4 +21,8 @@
 -(void) setY:(double) newY;
 -(void) addPointX:(double) newX Y:(double) newY;
 
++(void) setX:(double) newX;
++(void) setY:(double) newY;
++(PointXY *) addPointX:(double) newX Y:(double) newY;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "curveMath.h"
+#import "PointXY.h"
 
 @implementation curveMath
 
@@ -14,6 +15,7 @@
 @synthesize function;
 @synthesize xData;
 @synthesize yData;
+@synthesize pointData;
 @synthesize leftx, lefty, rightx, righty;
 @synthesize lowX, lowY, highX, highY;
 @synthesize isNew;
@@ -25,6 +27,7 @@
     {
         xData     = [[NSMutableArray alloc] init];
         yData     = [[NSMutableArray alloc] init];
+        pointData = [[NSMutableArray alloc] init];
 
         curveName = [[NSString alloc] init];
         function  = [[NSString alloc] init];
@@ -36,6 +39,7 @@
 {
     [xData release];
     [yData release];
+    [pointData release];
 
     [curveName release];
     [function release];
@@ -51,17 +55,29 @@
 }
 
 -(curveMath *) initWithName: (NSString *) newName 
-                withXPoints: (NSMutableArray *) newX 
-             andwithYPoints: (NSMutableArray *) newY
+                withXPoints: (NSMutableArray *) newXs 
+             andwithYPoints: (NSMutableArray *) newYs
 {
     [self init];
     self.curveName = newName;
-    self.xData = newX;
-    self.yData = newY;
-    [self fitCurve];
+    self.xData = newXs;
+    self.yData = newYs;
     
+    [self fitCurve];
     return self;
 }
+
+-(curveMath *) initWithName: (NSString *) newName 
+                  andPoints: (NSMutableArray *) newPoints 
+{
+    [self init];
+    self.curveName = newName;
+    self.pointData = newPoints;
+    
+    [self fitCurve];
+    return self;
+}//*/
+
 
 -(void)fitCurve
 {
@@ -227,6 +243,97 @@
         
     [self.xData addObject: [NSNumber numberWithDouble:newX]];
     [self.yData addObject: [NSNumber numberWithDouble:newY]];
+}
+
+- (void) addPoint:(double) newX :(double) newY
+{
+    //print out using nslog new x and y, high x and y, and low x and y:
+    NSLog(@"###NEW_PRINT BEFORE###");      //new print marker..
+    //x:
+    NSLog(@"New  X at %f: ", newX); //newX..
+    NSLog(@"High X at %f: ", self.highX);//highX..
+    NSLog(@"Low  X at %f: ", self.lowX); //lowX..
+    //y:
+    NSLog(@"New  Y at %f: ", newY); //newY..
+    NSLog(@"High Y at %f: ", self.highY);//highY..
+    NSLog(@"Low  Y at %f: ", self.lowY); //lowY..
+    
+    //1) get current highest point (x and y) and current lowest point (x and y); after input of each point
+    //2) insert new points in their proper place in the array (sort by lowest to highest)
+    
+    
+    if(self.isNew)
+    {
+        NSLog(@"!!!NO Data in Array yet!!!");
+        self.lowX = newX;
+        self.highX = newX;
+        self.lowY = newY;
+        self.highY = newY;
+        self.isNew = TRUE;
+    } 
+    else 
+    {//entry of at least 2nd point and on:
+        //x:
+        if( newX < self.lowX )//if lowest..
+        {
+            NSLog(@"####NEW LOW X####");
+            self.lowX = newX;
+        } 
+        else
+            if( newX > self.highX )//if highest..
+            {
+                NSLog(@"####New HIGH X####");
+                self.highX = newX;
+            } 
+            else
+                if( newX == self.highX || newX == lowX )//if equal..
+                {
+                    //if newX is equal to highX or lowX not a 1-to-1 function; throw error.
+                    NSLog(@"ERROR THROW, NOT ONE TO ONE");
+                } 
+                else//if in the middle..
+                {
+                    //if newX is just in the middle somewhere; do nothing.
+                    NSLog(@"Simply add points");
+                }
+        //y:
+        if( newY < self.lowY )//if lowest..
+        {
+            NSLog(@"###New Lowest Y###");
+            self.lowY = newY;
+        } 
+        else
+            if( newY > self.highY )//if highest..
+            {
+                NSLog(@"###NEW Highest Y###");
+                self.highY = newY;
+            } 
+            else
+                if( newY == self.highY || newY == self.lowY )//if equal..
+                {
+                    //if newY is equal to highY or lowY not a 1-to-1 function; throw error.
+                } 
+                else//if in the middle..
+                {
+                    //if newY is just in the middle somewhere; do nothing.
+                }
+    }
+    
+    //print out using nslog new x and y, high x and y, and low x and y:
+    NSLog(@"###NEW_PRINT AFTER###");      //new print marker..
+    //x:
+    NSLog(@"New  X at %f: ", newX); //newX..
+    NSLog(@"High X at %f: ", self.highX);//highX..
+    NSLog(@"Low  X at %f: ", self.lowX); //lowX..
+    //y:
+    NSLog(@"New  Y at %f: ", newY); //newY..
+    NSLog(@"High Y at %f: ", self.highY);//highY..
+    NSLog(@"Low  Y at %f: ", self.lowY); //lowY..
+    
+    PointXY *newPoint = [[PointXY alloc] init];
+    [newPoint addPointX:newX Y:newY];//add x and y coordinates to a PointXY object..
+    [self.pointData addObject:newPoint ];//add new PointXY object to point array..
+    [newPoint dealloc];
 }
 
 @end

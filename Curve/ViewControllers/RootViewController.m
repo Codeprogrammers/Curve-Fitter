@@ -13,6 +13,7 @@
 #import "EditCurveViewController.h"
 
 #import "curveMath.h"
+#import "PointXY.h"
 
 @implementation RootViewController
 
@@ -365,16 +366,29 @@
     curveMath *curve6 = [[curveMath alloc] initWithName:@"Curve #6"];
     curveMath *curve7 = [[curveMath alloc] initWithName:@"Curve #7"];
     curveMath *curve8 = [[curveMath alloc] initWithName:@"Curve #8"];
-    curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
+        
+    NSMutableArray *newPoints = [[NSMutableArray alloc] initWithObjects:
+                                 [PointXY addPointX:0 Y:100],
+                                 [PointXY addPointX:10 Y:200],
+                                 [PointXY addPointX:20 Y:300],
+                                 [PointXY addPointX:30 Y:300],
+                                 [PointXY addPointX:-2 Y:560], nil];
     
-    
-    
+    curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9" andPoints:newPoints];
+
+/*
+    [curve9 addPoint:0 :100];
+    [curve9 addPoint:10 :200];
+    [curve9 addPoint:20 :300];
+    [curve9 addPoint:30 :500];
+    [curve9 addPoint:-2 :560];//*/
+/* 
     [curve9 addPointX:0 andPointY:100];
     [curve9 addPointX:10 andPointY:200];
     [curve9 addPointX:20 andPointY:300];
     [curve9 addPointX:30 andPointY:500];
-    [curve9 addPointX: -2 andPointY:560];
-    /*
+    [curve9 addPointX: -2 andPointY:560];//*/
+/*
     [curve9 addPointX:[NSNumber numberWithInt:10] andPointY:[NSNumber numberWithInt:200]];
     [curve9 addPointX:[NSNumber numberWithInt:20] andPointY:[NSNumber numberWithInt:300]];
     [curve9 addPointX:[NSNumber numberWithInt:30] andPointY:[NSNumber numberWithInt:400]];
@@ -393,9 +407,7 @@
     [curve9 addPointX:[NSNumber numberWithInt:160] andPointY:[NSNumber numberWithInt:1700]];
     [curve9 addPointX:[NSNumber numberWithInt:170] andPointY:[NSNumber numberWithInt:1800]];
     [curve9 addPointX:[NSNumber numberWithInt:180] andPointY:[NSNumber numberWithInt:1900]];
-    [curve9 addPointX:[NSNumber numberWithInt:190] andPointY:[NSNumber numberWithInt:2000]];
-     */
-    
+    [curve9 addPointX:[NSNumber numberWithInt:190] andPointY:[NSNumber numberWithInt:2000]];//*/
     
     curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, curve9, nil];
 }

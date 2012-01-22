@@ -15,6 +15,7 @@
     NSString *function;
     NSMutableArray *xData;
     NSMutableArray *yData;
+    NSMutableArray *pointData;
     
     double lowX;
     double lowY;
@@ -34,6 +35,7 @@
 
 @property (nonatomic, strong) NSMutableArray *xData;
 @property (nonatomic, strong) NSMutableArray *yData;
+@property (nonatomic, strong) NSMutableArray *pointData;
 
 @property (nonatomic) double lowX;
 @property (nonatomic) double lowY;
@@ -52,7 +54,10 @@
 -(curveMath *) initWithName: (NSString *) newName 
                 withXPoints: (NSMutableArray *) newX 
              andwithYPoints: (NSMutableArray *) newY;
-
+-(curveMath *) initWithName: (NSString *) newName 
+                   andPoints: (NSMutableArray *) newPoints;
 
 - (void)addPointX:(double) newX andPointY:(double) newY;
+- (void) addPoint:(double) newX :(double) newY;
+
 @end

@@ -14,18 +14,37 @@
 
 -(void) setX:(double) newX
 {
-    x = newX;
+    self.x = newX;
 }
 
 -(void) setY:(double) newY
 {
-    y = newY;
+    self.y = newY;
 }
 
 -(void) addPointX:(double) newX Y:(double) newY
 {
     [self setX:newX];
     [self setY:newY];
+}
+
++(void) setX:(double) newX
+{
+    self.x = newX;
+}
+
++(void) setY:(double) newY
+{
+    self.y = newY;
+}
+
++(PointXY *) addPointX:(double) newX Y:(double) newY
+{
+    PointXY *newPoint;
+    [newPoint setX:newX];
+    [newPoint setY:newY];
+    
+    return newPoint;
 }
 
 @end
