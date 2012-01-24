@@ -248,7 +248,21 @@
     [newPoint setPointX: newX andPointY: newY];  //set x and y coordinates to a PointXY object..
     [dataPoints addObject:newPoint ];//add new PointXY object to point array..
     [newPoint release];
+}
 
+-(void)sort/*:(int) index*/
+{
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pointX" ascending:YES selector:@selector(compare:)];
+    
+    NSArray *sortedPoints = [dataPoints sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];//*/
+    
+/*    NSArray *sortedPoints = [dataPoints sortedArrayUsingComparator:^(id obj1, id obj2) {
+        NSNumber *pointX1 = [NSNumber numberWithDouble:[obj1 pointX]];
+        NSNumber *pointX2 = [NSNumber numberWithDouble:[obj2 pointX]];
+        return [pointX1 compare: pointX2];
+    }];//*/
+    
+    self.dataPoints = (NSMutableArray *)sortedPoints;
 }
 
 @end

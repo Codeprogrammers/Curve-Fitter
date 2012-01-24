@@ -266,6 +266,7 @@
     [curve1 addPointX: 310 andPointY: 200];
     [curve1 addPointX:160 andPointY:160];
     [curve1 addPointX:143 andPointY:200];
+    [curve1 sort];
     
     curveMath *curve2 = [[curveMath alloc] initWithName:@"Curve #2"];
     for (int i=0; i<45; i++) 
@@ -287,6 +288,7 @@
     [curve4 addPointX:260 andPointY:255];
     [curve4 addPointX:261 andPointY:255];
     [curve4 addPointX:262 andPointY:255];
+    [curve4 sort];
     
     curveMath *curve5 = [[curveMath alloc] initWithName:@"Curve #5"];
     [curve5 addPointX:1 andPointY:1];
@@ -301,11 +303,13 @@
     [curve7 addPointX:3 andPointY:3];
     [curve7 addPointX:4 andPointY:4];
     [curve7 addPointX:5 andPointY:5];
+    [curve7 sort];
     
     curveMath *curve8 = [[curveMath alloc] initWithName:@"Curve #8"];
     [curve8 addPointX: -1 andPointY:-1];
     [curve8 addPointX:-2 andPointY:-2];
     [curve8 addPointX:4 andPointY:34];
+    [curve8 sort];
     
     curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
     
@@ -314,7 +318,7 @@
     [curve9 addPointX:20 andPointY:300];
     [curve9 addPointX:30 andPointY:500];
     [curve9 addPointX: -2 andPointY:560];
-    
+    [curve9 sort];
     
     curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, curve9, nil];
 }
