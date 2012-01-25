@@ -113,32 +113,37 @@
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.0) length:CPTDecimalFromFloat(2.0)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.0) length:CPTDecimalFromFloat(3.0)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-2.0) length:CPTDecimalFromFloat(4.0)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-2.0) length:CPTDecimalFromFloat(4.0)];
     
     // Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     CPTXYAxis *x = axisSet.xAxis;
     x.majorIntervalLength = CPTDecimalFromString(@"0.5");
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"2");
+    
+    //Origin
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+    
     x.minorTicksPerInterval = 2;
  	NSArray *exclusionRanges = [NSArray arrayWithObjects:
                                 [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
                                 [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
                                 [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(2.99) length:CPTDecimalFromFloat(0.02)],
                                 nil];
-	x.labelExclusionRanges = exclusionRanges;
+	//x.labelExclusionRanges = exclusionRanges;
     
     CPTXYAxis *y = axisSet.yAxis;
     y.majorIntervalLength = CPTDecimalFromString(@"0.5");
     y.minorTicksPerInterval = 5;
-    y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"2");
+    
+    //Origin
+    y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
 	exclusionRanges = [NSArray arrayWithObjects:
                        [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
                        [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
                        [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(3.99) length:CPTDecimalFromFloat(0.02)],
                        nil];
-	y.labelExclusionRanges = exclusionRanges;
+	//y.labelExclusionRanges = exclusionRanges;
     
 	// Create a blue plot area
 	CPTScatterPlot *boundLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
