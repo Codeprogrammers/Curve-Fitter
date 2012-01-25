@@ -252,17 +252,17 @@
 
 -(void)sort
 {
-    //Way #1:
-/*    NSArray *sortedPoints = [dataPoints sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"pointX" ascending:YES selector:@selector(compare:)]]];//*/
+/*    //Way #1:
+    NSArray *sortedPoints = [dataPoints sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"pointX" ascending:YES selector:@selector(compare:)]]];//*/
     
     //Way #2: (block way):
     NSArray *sortedPoints = [dataPoints sortedArrayUsingComparator:^(id obj1, id obj2) {
         NSNumber *pointX1 = [NSNumber numberWithDouble:[obj1 pointX]];
         NSNumber *pointX2 = [NSNumber numberWithDouble:[obj2 pointX]];
         return [pointX1 compare: pointX2];
-    }];//*/
-    
-    self.dataPoints = (NSMutableArray *)sortedPoints;
+    }];
+
+    self.dataPoints = [sortedPoints mutableCopy];
 }
 
 - (void)deletewithPointX: (double) targetX
