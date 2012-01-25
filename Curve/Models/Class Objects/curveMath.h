@@ -56,6 +56,8 @@
                    andPoints: (NSMutableArray *) newPoints;
 
 - (void)addPointX:(double) newX andPointY:(double) newY;
-- (void)sort/*:(int) index*/;
+- (void)deletewithPointX: (double) targetX;
+- (void)deletePointXYatIndex: (NSUInteger) targetIndex;
+- (void)sort;
 
 @end

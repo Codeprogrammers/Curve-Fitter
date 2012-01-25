@@ -250,7 +250,7 @@
     [newPoint release];
 }
 
--(void)sort/*:(int) index*/
+-(void)sort
 {
     //Way #1:
 /*    NSArray *sortedPoints = [dataPoints sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"pointX" ascending:YES selector:@selector(compare:)]]];//*/
@@ -263,6 +263,38 @@
     }];//*/
     
     self.dataPoints = (NSMutableArray *)sortedPoints;
+}
+
+- (void)deletewithPointX: (double) targetX
+{
+    bool isFound = NO;
+    int currentIndex = 0;
+    
+    for(; ([dataPoints count] > currentIndex) && !isFound ; currentIndex++)
+    {
+        NSLog(@"At Index: %i the object is: %f", currentIndex, [[dataPoints objectAtIndex:currentIndex] pointX]);
+        if([[dataPoints objectAtIndex:currentIndex] pointX] == targetX)
+        {
+            isFound = YES;
+            currentIndex --;
+        }
+    }
+    if(isFound)
+    {
+        NSLog(@"!!!At Index: %i the object is: %f", currentIndex, [[dataPoints objectAtIndex:currentIndex] pointX]);
+        [dataPoints removeObjectAtIndex: currentIndex];
+        NSLog(@"Object at index %i deleted X Target %f", currentIndex, targetX );
+    }
+    else
+    {
+        NSLog(@"Nothing found to delete");
+    }
+    
+}
+
+- (void)deletePointXYatIndex: (NSUInteger) targetIndex
+{
+    [dataPoints removeObjectAtIndex:targetIndex];
 }
 
 @end
