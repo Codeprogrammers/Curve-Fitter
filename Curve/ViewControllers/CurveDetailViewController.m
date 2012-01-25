@@ -7,6 +7,7 @@
 //
 
 #import "CurveDetailViewController.h"
+#import "PointXY.h"
 
 @implementation CurveDetailViewController
 
@@ -216,10 +217,10 @@
 	NSUInteger i;
 	for ( i = 0; i < [selectedCurve.dataPoints count]; i++ ) {
         
-		id x = [NSNumber numberWithFloat:1+i*0.05];
-        //id x = [selectedCurve.xData objectAtIndex:i];
-		id y = [NSNumber numberWithFloat:1.2*rand()/(float)RAND_MAX + 1.2]; 
-        //id y = [selectedCurve.yData objectAtIndex:i];
+		//id x = [NSNumber numberWithFloat:1+i*0.05];
+        id x = [NSNumber numberWithFloat: [[selectedCurve.dataPoints objectAtIndex:i] pointX]];
+		//id y = [NSNumber numberWithFloat:1.2*rand()/(float)RAND_MAX + 1.2]; 
+        id y = [NSNumber numberWithFloat: [[selectedCurve.dataPoints objectAtIndex:i] pointY]];
 		[contentArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
 	}
 	self.dataForPlot = contentArray;
