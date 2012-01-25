@@ -204,6 +204,17 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     }
 }
 
+-(void) tableView: (UITableView *)tableView commitEditingStyle: (UITableViewCellEditingStyle) editingStyle forRowAtIndexPath: (NSIndexPath *)indexPath
+//This method performs deletions
+{
+    NSLog(@"Delete Point");
+    
+    [currentCurve.dataPoints removeObjectAtIndex:[indexPath row]];
+
+   [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    [tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark UITextFieldDelegate methods
 
