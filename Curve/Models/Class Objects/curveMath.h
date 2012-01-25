@@ -2,7 +2,7 @@
 //  curveMath.h
 //  Curve
 //
-//  Created by Bradley Clemetson on 12/10/11.
+//  Created by Bradley Clemetson + Bradley Clemetson on 12/10/11.
 //  Copyright (c) 2011 Codeprogrammers for Gonzaga University. All rights reserved.
 //
 
@@ -13,29 +13,34 @@
     NSString *curveName;
     
     NSString *function;
-    NSMutableArray *xData;
-    NSMutableArray *yData;
-    NSNumber *lowX;
-    NSNumber *lowY;
-    NSNumber *highX;
-    NSNumber *highY;
+
+    NSMutableArray *dataPoints;
+    
+    double lowX;
+    double lowY;
+    double highX;
+    double highY;
     
     double leftx;
     double lefty;
     double rightx;
     double righty;
+    
+    BOOL isNew;
 }
 
 @property (nonatomic, retain) NSString *curveName;
 @property (nonatomic, retain) NSString *function;
 
-@property (copy,readwrite) NSArray *xData;
-@property (copy,readwrite) NSArray *yData;
 
-@property (nonatomic, retain) NSNumber *lowX;
-@property (nonatomic, retain) NSNumber *lowY;
-@property (nonatomic, retain) NSNumber *highX;
-@property (nonatomic, retain) NSNumber *highY;
+@property (nonatomic, strong) NSMutableArray *dataPoints;
+
+@property (nonatomic) double lowX;
+@property (nonatomic) double lowY;
+@property (nonatomic) double highX;
+@property (nonatomic) double highY;
+
+@property (nonatomic) BOOL isNew;
 
 @property (nonatomic) double leftx;
 @property (nonatomic) double lefty;
@@ -45,9 +50,14 @@
 -(void)fitCurve;
 -(curveMath *) initWithName: (NSString *) newName;
 -(curveMath *) initWithName: (NSString *) newName 
-                withXPoints: (NSArray *) newX 
-             andwithYPoints: (NSArray *) newY;
+                withXPoints: (NSMutableArray *) newX 
+             andwithYPoints: (NSMutableArray *) newY;
+-(curveMath *) initWithName: (NSString *) newName 
+                   andPoints: (NSMutableArray *) newPoints;
 
+- (void)addPointX:(double) newX andPointY:(double) newY;
+- (void)deletewithPointX: (double) targetX;
+- (void)deletePointXYatIndex: (NSUInteger) targetIndex;
+- (void)sort;
 
-- (void)addPointX:(NSNumber *) newX andPointY:(NSNumber *) newY;
 @end

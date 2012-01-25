@@ -29,8 +29,16 @@
 }
 */
 
-
-
+-(id)init
+{
+    self = [super init];
+    if(self)
+    {
+        xPoint = [[UITextField alloc] init];
+        yPoint = [[UITextField alloc] init];
+    }
+    return self;
+}
 
 - (void)dealloc
 {

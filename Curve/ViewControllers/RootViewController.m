@@ -13,6 +13,7 @@
 #import "EditCurveViewController.h"
 
 #import "curveMath.h"
+#import "PointXY.h"
 
 @implementation RootViewController
 
@@ -254,115 +255,71 @@
 }
 
 -(void) LoadSampleCurves
-{
-    NSMutableArray *curvex = [[NSMutableArray alloc] initWithObjects: [NSNumber numberWithFloat:100],
-                              [NSNumber numberWithFloat:300],
-                              [NSNumber numberWithFloat:150],
-                              [NSNumber numberWithFloat:50.5],
-                              [NSNumber numberWithFloat:10.4],
-                              [NSNumber numberWithFloat:310],
-                              [NSNumber numberWithFloat:160],
-                              [NSNumber numberWithFloat:165],
-                              [NSNumber numberWithFloat:170],
-                              [NSNumber numberWithFloat:143], nil];
-    NSMutableArray *curvey = [[NSMutableArray alloc] initWithObjects: [NSNumber numberWithFloat:100],
-                             [NSNumber numberWithFloat:430],
-                             [NSNumber numberWithFloat:140],
-                             [NSNumber numberWithFloat:45],
-                             [NSNumber numberWithFloat:30],
-                             [NSNumber numberWithFloat:200],
-                             [NSNumber numberWithFloat:160],
-                             [NSNumber numberWithFloat:165],
-                             [NSNumber numberWithFloat:170],
-                             [NSNumber numberWithFloat:200], nil];    
+{  
     
-    curveMath *curve1 = [[curveMath alloc] initWithName:@"Curve #1" withXPoints:curvex andwithYPoints:curvey];
-    curvex = [[NSMutableArray alloc] init];
-    for (int i=0; i<40; i++) {
-        NSNumber *num = [NSNumber numberWithFloat:i];
-        [curvex addObject:num];
-    }
-    curvey = [[NSMutableArray alloc] init];
-    for (int i=0; i<40; i++) {
-        NSNumber *num = [NSNumber numberWithFloat:i*11];
-        [curvey addObject:num];
-    }
-    curveMath *curve2 = [[curveMath alloc] initWithName:@"Curve #2" withXPoints:curvex andwithYPoints:curvey];
-    for (int i=0; i<45; i++) {
-        NSNumber *num = [NSNumber numberWithFloat:rand()];
-        [curvex addObject:num];
-    }
-    for (int i=0; i<45; i++) {
-        NSNumber *num = [NSNumber numberWithFloat:rand()];
-        [curvey addObject:num];
-    }
-    curveMath *curve3 = [[curveMath alloc] initWithName:@"Curve #3" withXPoints:curvex andwithYPoints:curvey];
+    curveMath *curve1 = [[curveMath alloc] initWithName:@"Curve #1"];
     
-    curvex = [[NSMutableArray alloc] init];
-    for (int i=0; i<100; i++) {
-        NSNumber *num = [NSNumber numberWithFloat:rand()];
-        [curvex addObject:num];
-    }
-    curvey = [[NSMutableArray alloc] init];
-    for (int i=0; i<100; i++) {
-        NSNumber *num = [NSNumber numberWithFloat:rand()];
-        [curvey addObject:num];
-    }
-    curveMath *curve4 = [[curveMath alloc] initWithName:@"Curve #4" withXPoints:curvex andwithYPoints:curvey];
+    [curve1 addPointX: 300 andPointY: 430];
+    [curve1 addPointX: 150 andPointY: 140];
+    [curve1 addPointX: 50.5 andPointY: 45];
+    [curve1 addPointX: 10.4 andPointY: 30];
+    [curve1 addPointX: 310 andPointY: 200];
+    [curve1 addPointX:160 andPointY:160];
+    [curve1 addPointX:143 andPointY:200];
+    [curve1 sort];
     
-    curvex = [[NSMutableArray alloc] initWithObjects: [NSNumber numberWithFloat:256],
-              [NSNumber numberWithFloat:257],
-              [NSNumber numberWithFloat:259],
-              [NSNumber numberWithFloat:260],
-              [NSNumber numberWithFloat:261],
-              [NSNumber numberWithFloat:261],
-              [NSNumber numberWithFloat:262],
-              [NSNumber numberWithFloat:265],
-              [NSNumber numberWithFloat:270],
-              [NSNumber numberWithFloat:270],
-              [NSNumber numberWithFloat:273],
-              [NSNumber numberWithFloat:273],
-              [NSNumber numberWithFloat:277],
-              [NSNumber numberWithFloat:277],
-              [NSNumber numberWithFloat:278],
-              [NSNumber numberWithFloat:284],
-              [NSNumber numberWithFloat:288],              
-              [NSNumber numberWithFloat:288],
-              [NSNumber numberWithFloat:288],
-              [NSNumber numberWithFloat:288],
-              [NSNumber numberWithFloat:288],
-              [NSNumber numberWithFloat:294],
-              [NSNumber numberWithFloat:296],
-              [NSNumber numberWithFloat:300], nil];
-    curvey = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithFloat:262],
-              [NSNumber numberWithFloat:260],
-              [NSNumber numberWithFloat:262],
-              [NSNumber numberWithFloat:255],
-              [NSNumber numberWithFloat:260],
-              [NSNumber numberWithFloat:262],
-              [NSNumber numberWithFloat:270],
-              [NSNumber numberWithFloat:266],
-              [NSNumber numberWithFloat:270],
-              [NSNumber numberWithFloat:267],
-              [NSNumber numberWithFloat:285],
-              [NSNumber numberWithFloat:276],
-              [NSNumber numberWithFloat:273],
-              [NSNumber numberWithFloat:276],
-              [NSNumber numberWithFloat:278],
-              [NSNumber numberWithFloat:280],
-              [NSNumber numberWithFloat:288],
-              [NSNumber numberWithFloat:287],              
-              [NSNumber numberWithFloat:282],
-              [NSNumber numberWithFloat:281],
-              [NSNumber numberWithFloat:292],
-              [NSNumber numberWithFloat:293],
-              [NSNumber numberWithFloat:284],
-              [NSNumber numberWithFloat:286], nil];
-    curveMath *curve5 = [[curveMath alloc] initWithName:@"Curve #5" withXPoints:curvex andwithYPoints:curvey];
+    curveMath *curve2 = [[curveMath alloc] initWithName:@"Curve #2"];
+    for (int i=0; i<45; i++) 
+    {
+        [curve2 addPointX:rand() andPointY:rand()];
+        
+    }
+    
+    curveMath *curve3 = [[curveMath alloc] initWithName:@"Curve #3"];
+    for (int i=0; i<100; i++) 
+    {
+        [curve3 addPointX:rand() andPointY:rand()];
+    }
+    
+    curveMath *curve4 = [[curveMath alloc] initWithName:@"Curve #4"];
+    
+    [curve4 addPointX:257 andPointY:260];
+    [curve4 addPointX:259 andPointY:262];
+    [curve4 addPointX:260 andPointY:255];
+    [curve4 addPointX:261 andPointY:255];
+    [curve4 addPointX:262 andPointY:255];
+    [curve4 sort];
+    
+    curveMath *curve5 = [[curveMath alloc] initWithName:@"Curve #5"];
+    [curve5 addPointX:1 andPointY:1];
+    
     curveMath *curve6 = [[curveMath alloc] initWithName:@"Curve #6"];
-    curveMath *curve7 = [[curveMath alloc] initWithName:@"Curve #7"];
-    curveMath *curve8 = [[curveMath alloc] initWithName:@"Curve #8"];
+    [curve6 addPointX:0 andPointY:0];
     
-    curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, nil];
+    curveMath *curve7 = [[curveMath alloc] initWithName:@"Curve #7"];
+    [curve7 addPointX:0 andPointY:0];
+    [curve7 addPointX:1 andPointY:1];
+    [curve7 addPointX:2 andPointY:2];
+    [curve7 addPointX:3 andPointY:3];
+    [curve7 addPointX:4 andPointY:4];
+    [curve7 addPointX:5 andPointY:5];
+    [curve7 sort];
+    
+    curveMath *curve8 = [[curveMath alloc] initWithName:@"Curve #8"];
+    [curve8 addPointX: -1 andPointY:-1];
+    [curve8 addPointX:-2 andPointY:-2];
+    [curve8 addPointX:4 andPointY:34];
+    [curve8 sort];
+    
+    curveMath *curve9 = [[curveMath alloc] initWithName:@"Curve #9"];
+    
+    [curve9 addPointX:0 andPointY:100];
+    [curve9 addPointX:10 andPointY:200];
+    [curve9 addPointX:20 andPointY:300];
+    [curve9 addPointX:30 andPointY:500];
+    [curve9 addPointX: -2 andPointY:560];
+    [curve9 sort];
+    
+    curveLists.curveListObjects =[[NSMutableArray alloc] initWithObjects: curve1, curve2, curve3, curve4, curve5, curve6, curve7, curve8, curve9, nil];
 }
 @end

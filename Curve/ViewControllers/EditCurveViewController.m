@@ -7,6 +7,7 @@
 //
 
 #import "EditCurveViewController.h"
+#import "PointXY.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -134,7 +135,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     if (editingCurve == NO) 
         return 1;
     else
-        return [currentCurve.xData count] + 1;
+        return [currentCurve.dataPoints count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -142,7 +143,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     static NSString *CellIdentifier = @"Cell";
     
-    NSLog(@"Creating Cell Row: %i", indexPath.row + 1);
+    //NSLog(@"Creating Cell Row: %i", indexPath.row + 1);
     PointCell *cell = (PointCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil)
@@ -151,20 +152,22 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         cell = pointCell;
         self.pointCell = nil;
     }
-    if(indexPath.row == ([self.currentCurve.xData count]))
+    if(indexPath.row == ([self.currentCurve.dataPoints count]))
     {
 
     }
     else
     if (self.editingCurve == YES)
     {
-            cell.xPoint.text = [NSString stringWithFormat:@"%@", 
-                                [self.currentCurve.xData objectAtIndex: [indexPath row]]
-                                ];
-            cell.yPoint.text =  [NSString stringWithFormat:@"%@", 
-                                 [self.currentCurve.yData objectAtIndex: [indexPath row]]
-                                 ];
+            //cell.xPoint.text = [NSString stringWithFormat:@"%@", 
+            //                    [self.currentCurve.xData objectAtIndex: [indexPath row]]
+            //                    ];
+            //cell.yPoint.text =  [NSString stringWithFormat:@"%@", 
+            //                     [self.currentCurve.yData objectAtIndex: [indexPath row]]
+            //                     ];
         
+        cell.xPoint.text = [NSString stringWithFormat:@"%.12g", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointX]];
+        cell.yPoint.text = [NSString stringWithFormat:@"%.12g", [[currentCurve.dataPoints objectAtIndex: [indexPath row]] pointY]];
         cell.xPoint.tag = indexPath.row + 1;
         cell.yPoint.tag = indexPath.row + 1;
     }
@@ -209,8 +212,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 	[textField resignFirstResponder];
 	return YES;
 }
-
-
 
 
 @end
