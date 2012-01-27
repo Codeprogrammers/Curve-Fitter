@@ -45,6 +45,7 @@
 {
     [self init];
     self.curveName = newName;
+    self.isNew = TRUE;
     return self;
 }
 
@@ -183,7 +184,7 @@
         self.highX = newX;
         self.lowY = newY;
         self.highY = newY;
-        self.isNew = TRUE;
+        self.isNew = FALSE;
     } 
     else 
     {//entry of at least 2nd point and on:
