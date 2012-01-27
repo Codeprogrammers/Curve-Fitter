@@ -119,13 +119,11 @@
     // Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     CPTXYAxis *x = axisSet.xAxis;
-    x.majorIntervalLength = CPTDecimalFromString(@"0.5");
     x.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     
     //Origin
     x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
-    x.minorTicksPerInterval = 2;
  	NSArray *exclusionRanges = [NSArray arrayWithObjects:
                                 [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
                                 [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
@@ -134,8 +132,6 @@
 	//x.labelExclusionRanges = exclusionRanges;
     
     CPTXYAxis *y = axisSet.yAxis;
-    y.majorIntervalLength = CPTDecimalFromString(@"0.5");
-    y.minorTicksPerInterval = 5;
     y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     
     //Origin
