@@ -120,6 +120,7 @@
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     CPTXYAxis *x = axisSet.xAxis;
     x.majorIntervalLength = CPTDecimalFromString(@"0.5");
+    x.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     
     //Origin
     x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
@@ -135,6 +136,7 @@
     CPTXYAxis *y = axisSet.yAxis;
     y.majorIntervalLength = CPTDecimalFromString(@"0.5");
     y.minorTicksPerInterval = 5;
+    y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     
     //Origin
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
