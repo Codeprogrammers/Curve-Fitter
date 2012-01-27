@@ -18,9 +18,8 @@
 {
     CurveArray *curveLists;
     
+    IBOutlet UITableView *Table;
     UINavigationBar *modalNavigationBar;
-    UIBarButtonItem *cancelButton;
-    UIBarButtonItem *doneButton;
     
     UITextField *curveName;
     
@@ -32,9 +31,6 @@
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *modalNavigationBar;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *doneButton;
-
 @property (nonatomic, retain) IBOutlet UITableView *curveXYPoints;
 @property (nonatomic, retain) IBOutlet UITextField *curveName;
 @property (nonatomic, retain) IBOutlet PointCell *pointCell;
@@ -42,8 +38,8 @@
 @property (nonatomic) BOOL editingCurve;
 @property (nonatomic, retain) curveMath *currentCurve;
 
-- (IBAction)cancelPressed:(id)sender;
-- (IBAction)donePressed:(id)sender;
+- (IBAction) EditTable:(id)sender;
+
 - (IBAction)shouldAllowDone:(id)sender;
 - (IBAction)updateTitle:(id)sender;
 - (IBAction)curveNameDidFinishedit:(id)sender;
