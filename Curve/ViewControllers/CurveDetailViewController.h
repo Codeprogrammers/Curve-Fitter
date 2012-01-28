@@ -19,14 +19,19 @@
     CPTXYGraph *graph;
     
     NSMutableArray *dataForPlot;
+    UIBarButtonItem *curveFunction;
+    UIBarButtonItem *graphDetailCurl;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *graphView;
 @property (nonatomic, strong) curveMath *selectedCurve;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *graphDetailCurl;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *curveFunction;
 @property(readwrite, retain, nonatomic) NSMutableArray *dataForPlot;
 
 - (CPTXYGraph *) initCurveGraph;
 - (void) loadCurvePoints;
 - (void) refreshCurve;
+- (IBAction)showGraphDetails:(id)sender;
 
 @end

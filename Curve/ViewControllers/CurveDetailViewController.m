@@ -12,6 +12,7 @@
 @implementation CurveDetailViewController
 
 @synthesize graphView;
+@synthesize graphDetailCurl, curveFunction;
 @synthesize selectedCurve;
 @synthesize dataForPlot;
 
@@ -38,6 +39,7 @@
 {
     [super viewDidLoad];
     [self initCurveGraph];
+    self.curveFunction.title = @"f(X)";
     // Do any additional setup after loading the view from its nib.
 
         
@@ -250,6 +252,11 @@
     [self changePlotRange];
     [self loadCurvePoints];
     [graph reloadData];
+}
+
+- (IBAction)showGraphDetails:(id)sender
+{
+    NSLog(@"Curl Graph Details Pressed!");
 }
 
 @end
