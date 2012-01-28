@@ -26,6 +26,8 @@
 		A21F8EE414C3B13B00CD26E1 /* CorePlot-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */; };
 		A21F8EE614C3B13B00CD26E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE214C3B13B00CD26E1 /* README.md */; };
 		A21F8EE714C3B13B00CD26E1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A21F8EE314C3B13B00CD26E1 /* README.txt */; };
+		A2291B9A14D3F0EA004236CA /* GraphDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2291B9814D3F0EA004236CA /* GraphDetailViewController.m */; };
+		A2291B9B14D3F0EA004236CA /* GraphDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2291B9914D3F0EA004236CA /* GraphDetailViewController.xib */; };
 		A25F19E61495DE240072E443 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A25F19E51495DE240072E443 /* QuartzCore.framework */; };
 		A2887395149B1E03000F2780 /* EditCurveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2887393149B1E03000F2780 /* EditCurveViewController.m */; };
 		A2887396149B1E03000F2780 /* EditCurveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2887394149B1E03000F2780 /* EditCurveViewController.xib */; };
@@ -72,6 +74,9 @@
 		A21F8EE014C3B13A00CD26E1 /* CorePlot-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CorePlot-License.txt"; sourceTree = "<group>"; };
 		A21F8EE214C3B13B00CD26E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A21F8EE314C3B13B00CD26E1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		A2291B9714D3F0EA004236CA /* GraphDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphDetailViewController.h; path = ViewControllers/GraphDetailViewController.h; sourceTree = "<group>"; };
+		A2291B9814D3F0EA004236CA /* GraphDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphDetailViewController.m; path = ViewControllers/GraphDetailViewController.m; sourceTree = "<group>"; };
+		A2291B9914D3F0EA004236CA /* GraphDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphDetailViewController.xib; path = Curve/Views/GraphDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		A25F19E51495DE240072E443 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A25F19E81495DEC00072E443 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "CorePlot-Framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		A2887392149B1E03000F2780 /* EditCurveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditCurveViewController.h; path = Curve/ViewControllers/EditCurveViewController.h; sourceTree = SOURCE_ROOT; };
@@ -178,6 +183,7 @@
 				A21F0F7D14955A7300443375 /* CurveDetailViewController.xib */,
 				A2AF463C14B348C300D2D0A8 /* PointCell.xib */,
 				A2887394149B1E03000F2780 /* EditCurveViewController.xib */,
+				A2291B9914D3F0EA004236CA /* GraphDetailViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 				A2887393149B1E03000F2780 /* EditCurveViewController.m */,
 				A2AF463A14B348C300D2D0A8 /* PointCell.h */,
 				A2AF463B14B348C300D2D0A8 /* PointCell.m */,
+				A2291B9714D3F0EA004236CA /* GraphDetailViewController.h */,
+				A2291B9814D3F0EA004236CA /* GraphDetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 				A21F8EE414C3B13B00CD26E1 /* CorePlot-License.txt in Resources */,
 				A21F8EE614C3B13B00CD26E1 /* README.md in Resources */,
 				A21F8EE714C3B13B00CD26E1 /* README.txt in Resources */,
+				A2291B9B14D3F0EA004236CA /* GraphDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +351,7 @@
 				A2AF463D14B348C300D2D0A8 /* PointCell.m in Sources */,
 				A2A443C414C28B4B0033B936 /* CurveArray.m in Sources */,
 				01FB47DD14CBBC7200D1BDA1 /* PointXY.m in Sources */,
+				A2291B9A14D3F0EA004236CA /* GraphDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
