@@ -257,6 +257,10 @@
 - (IBAction)showGraphDetails:(id)sender
 {
     NSLog(@"Curl Graph Details Pressed!");
+    GraphDetailViewController *graphDetails = [[GraphDetailViewController alloc] init];
+    
+    graphDetails.modalTransitionStyle = UIModalTransitionStylePartialCurl;
+    [self presentModalViewController:graphDetails animated:YES];
 }
 
 @end
