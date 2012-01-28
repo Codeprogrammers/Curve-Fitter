@@ -59,8 +59,9 @@
 {
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(3.0 + 2.0*rand()/RAND_MAX)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(3.0 + 2.0*rand()/RAND_MAX)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) + ((selectedCurve.highX - selectedCurve.lowX) * .1))];
+    
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) + ((selectedCurve.highY - selectedCurve.lowY) * .1))];
 }
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
@@ -113,8 +114,9 @@
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat(4.0)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat(4.0)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) + ((selectedCurve.highX - selectedCurve.lowX) * .1))];
+    
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) + ((selectedCurve.highY - selectedCurve.lowY) * .1))];
     
     // Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
@@ -231,6 +233,7 @@
 
 - (void) refreshCurve
 {
+    [self changePlotRange];
     [self loadCurvePoints];
     [graph reloadData];
 }
