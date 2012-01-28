@@ -261,6 +261,8 @@
     
     graphDetails.modalTransitionStyle = UIModalTransitionStylePartialCurl;
     [self presentModalViewController:graphDetails animated:YES];
+    
+    [graphDetails release];
 }
 
 @end
