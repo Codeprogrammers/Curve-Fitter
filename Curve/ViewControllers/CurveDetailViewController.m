@@ -59,10 +59,26 @@
 {
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) + ((selectedCurve.highX - selectedCurve.lowX) * .1))];
+    if(((int) [selectedCurve.dataPoints count]) > 1)
+    {
+
+    plotSpace.allowsUserInteraction = YES;
     
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) + ((selectedCurve.highY - selectedCurve.lowY) * .1))];
+        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) * 1.2)];
+        
+        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) * 1.2)];
+    }
+    else
+    {
+        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX) / 2) length:CPTDecimalFromFloat((selectedCurve.lowX) * 2)];
+        
+        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY) / 2) length:CPTDecimalFromFloat((selectedCurve.lowX) * 2)];
+    }
+     
+    
 }
+
+
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
     return [dataForPlot count];
@@ -112,11 +128,8 @@
 	graph.paddingBottom = 0.0;
     
     // Setup plot space
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = YES;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) + ((selectedCurve.highX - selectedCurve.lowX) * .1))];
+    [self changePlotRange];
     
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) + ((selectedCurve.highY - selectedCurve.lowY) * .1))];
     
     // Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
