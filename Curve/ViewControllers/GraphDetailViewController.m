@@ -45,7 +45,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 - (NSInteger)numberOfSectionsInTableView: (UITableView *)tableView
@@ -75,12 +75,32 @@
     }
     
     // Configure the cell.
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //cell.accessoryType = UITableViewCellAccessoryNone;
     
     //kinda hackish
     //tmp = [curveLists.curveListObjects objectAtIndex: [indexPath row]];
     cell.textLabel.text = @"Graph Options!";
     //[curveLists.curveListObjects objectAtIndex: [indexPath row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+
+       /* //self.curveDetailViewController = [[CurveDetailViewController alloc] init];
+        
+        self.curveDetailViewController.selectedCurve = [curveLists.curveListObjects objectAtIndex:indexPath.row];
+        self.curveDetailViewController.title = curveDetailViewController.selectedCurve.curveName;
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            [self.curveDetailViewController refreshCurve];
+            [self.navigationController pushViewController: self.curveDetailViewController animated:YES];
+        }
+        else
+        {
+            [self.curveDetailViewController refreshCurve];
+        }
+        */
+    
 }
 @end
