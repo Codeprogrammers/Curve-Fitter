@@ -48,4 +48,39 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (NSInteger)numberOfSectionsInTableView: (UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) 
+    {
+        cell = [[UITableViewCell alloc] 
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell.
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    //kinda hackish
+    //tmp = [curveLists.curveListObjects objectAtIndex: [indexPath row]];
+    cell.textLabel.text = @"Graph Options!";
+    //[curveLists.curveListObjects objectAtIndex: [indexPath row]];
+    return cell;
+}
 @end
