@@ -40,9 +40,22 @@
     [super viewDidLoad];
     [self initCurveGraph];
     self.curveFunction.title = @"f(X)";
+    
+
+    
     // Do any additional setup after loading the view from its nib.
 
         
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }
 
 - (void)viewDidUnload
