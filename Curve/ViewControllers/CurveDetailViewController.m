@@ -11,6 +11,7 @@
 
 @implementation CurveDetailViewController
 
+@synthesize graphView;
 @synthesize selectedCurve;
 @synthesize dataForPlot;
 
@@ -115,10 +116,10 @@
 - (CPTXYGraph *) initCurveGraph;
 {
     // Create graph from theme
-    graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
+    graph = [[CPTXYGraph alloc] initWithFrame:graphView.frame];
 	CPTTheme *theme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
     [graph applyTheme:theme];
-	CPTGraphHostingView *hostingView = (CPTGraphHostingView *)self.view;
+	CPTGraphHostingView *hostingView = (CPTGraphHostingView *)self.graphView;
     hostingView.collapsesLayers = NO; // Setting to YES reduces GPU memory usage, but can slow drawing/scrolling
     hostingView.hostedGraph = graph;
 	

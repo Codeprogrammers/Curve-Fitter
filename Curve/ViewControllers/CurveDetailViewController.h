@@ -12,12 +12,16 @@
 
 @interface CurveDetailViewController : UIViewController <UISplitViewControllerDelegate>
 {
+    
+    UIView *graphView;
+    
     curveMath *selectedCurve;
     CPTXYGraph *graph;
     
     NSMutableArray *dataForPlot;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *graphView;
 @property (nonatomic, strong) curveMath *selectedCurve;
 @property(readwrite, retain, nonatomic) NSMutableArray *dataForPlot;
 
