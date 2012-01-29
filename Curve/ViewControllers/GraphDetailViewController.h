@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GraphDetailViewController : UIViewController
+@interface GraphDetailViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+{
+    NSMutableArray *myArray;
+    NSMutableArray *arrayColors;
+}
 
+@property (nonatomic, retain) NSMutableArray *myArray;
 @end
