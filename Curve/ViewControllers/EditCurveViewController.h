@@ -38,7 +38,7 @@
 @property (nonatomic) BOOL editingCurve;
 @property (nonatomic, retain) curveMath *currentCurve;
 
-- (IBAction) EditTable:(id)sender;
+- (IBAction)EditTable:(id)sender;
 
 - (IBAction)shouldAllowDone:(id)sender;
 - (IBAction)updateTitle:(id)sender;

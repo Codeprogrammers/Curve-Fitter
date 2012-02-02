@@ -11,9 +11,7 @@
  * ####1st things to do are as follows:######
  * 1) fix this function: "- (UITableViewCell *)tableView:(UITableView *)tableView 
  *              cellForRowAtIndexPath:(NSIndexPath *)indexPath"
- *   a) specifically change the additon of a point to only be possible when editing
- *       this will automatically fix many bugs and eliminate excess code.
- *   b) see example for help if get stuck on this.
+ *   a) see example for help if get stuck.
  * 2) clean up this complete mess haha..
  */
 
@@ -28,7 +26,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 @implementation EditCurveViewController
 
-@synthesize modalNavigationBar/*, cancelButton, editButton, doneButton*/;
+@synthesize modalNavigationBar;
 @synthesize curveName, curveXYPoints, pointCell;
 @synthesize currentCurve;
 @synthesize editingCurve;
@@ -146,7 +144,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 }
 
 - (NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
-{//this may be wrong..#####
+{
     // Return the number of rows in the section.
 /*    if (editingCurve == NO) 
         return 1;
