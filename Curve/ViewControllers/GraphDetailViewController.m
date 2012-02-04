@@ -40,7 +40,7 @@
     
     lineColors = [[NSMutableArray alloc] init];
 	[lineColors addObject:@"Blue"];
-	[lineColors addObject:@"Brow"];
+	[lineColors addObject:@"Brown"];
 	[lineColors addObject:@"Green"];
 	[lineColors addObject:@"Orange"];
 	[lineColors addObject:@"Purple"];
