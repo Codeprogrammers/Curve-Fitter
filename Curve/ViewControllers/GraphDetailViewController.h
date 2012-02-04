@@ -11,6 +11,7 @@
 @interface GraphDetailViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
     NSMutableArray *lineColors;
+    NSMutableArray *lineStyles;
 }
 
 @end

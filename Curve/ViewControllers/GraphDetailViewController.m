@@ -34,14 +34,19 @@
 {
     [super viewDidLoad];
     
+    lineStyles = [[NSMutableArray alloc] init];
+    [lineStyles addObject:@"Solid"];
+    [lineStyles addObject:@"Dashed"];
+    
     lineColors = [[NSMutableArray alloc] init];
-	[lineColors addObject:@"Red"];
-	[lineColors addObject:@"Orange"];
-	[lineColors addObject:@"Yellow"];
-	[lineColors addObject:@"Green"];
 	[lineColors addObject:@"Blue"];
-	[lineColors addObject:@"Indigo"];
-	[lineColors addObject:@"Violet"];
+	[lineColors addObject:@"Brow"];
+	[lineColors addObject:@"Green"];
+	[lineColors addObject:@"Orange"];
+	[lineColors addObject:@"Purple"];
+	[lineColors addObject:@"Red"];
+	[lineColors addObject:@"White"];
+    [lineColors addObject:@"Yellow"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -67,7 +72,7 @@
 - (NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -84,12 +89,13 @@
                 reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell.
-    //cell.accessoryType = UITableViewCellAccessoryNone;
-    
-    //kinda hackish
-    //tmp = [curveLists.curveListObjects objectAtIndex: [indexPath row]];
-    cell.textLabel.text = @"Graph Options!";
+    if(indexPath.row == 0)
+    cell.textLabel.text = @"Graph Line Style";
+    else
+    if(indexPath.row == 1)
+        cell.textLabel.text = @"Graph Theme";
+    else
+        cell.textLabel.text = @"Graph Options!";  
     //[curveLists.curveListObjects objectAtIndex: [indexPath row]];
     return cell;
 }
@@ -130,12 +136,12 @@
     [actionSheet addSubview:pickerView];
     [pickerView release];
     
-    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Done"]];
     closeButton.momentary = YES; 
     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
     closeButton.tintColor = [UIColor blackColor];
-    [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+    [closeButton addTarget:self action:@selector(actionSheetCancel:) forControlEvents:UIControlEventValueChanged];
     [actionSheet addSubview:closeButton];
     [closeButton release];
     
@@ -153,20 +159,25 @@
 //Sets the number of wheels
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
 	
-	return 2;
+	return 3;
 }
 
 //Sets the number of items per wheel
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component 
 {
-	if(component == 0)
+    if(component == 0)
+    {
+        return [lineStyles count];
+    }
+    else
+	if(component == 1)
     {
         return [lineColors count];
     }
     else
-    if(component == 1)
+    if(component == 2)
     {
-        return 5;
+        return 7;
     }
     else
     return 0;
@@ -177,14 +188,20 @@
 //Row sets each row item
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 { 
-	if (component == 0) 
+
+	if(component == 1) 
     {
         return [lineColors objectAtIndex:row];
     } 
-    else 
+    else
+    if(component == 2)
     {
-        return [NSString stringWithFormat: @"%d", row+1];
+        return [NSString stringWithFormat: @"%d", ((row+1) * 4)];
 	}
+    else
+    {
+        return [lineStyles objectAtIndex:row];
+    }
 }
 
 
