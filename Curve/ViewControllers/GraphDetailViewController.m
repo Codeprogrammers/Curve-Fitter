@@ -9,7 +9,6 @@
 #import "GraphDetailViewController.h"
 
 @implementation GraphDetailViewController
-@synthesize myArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,20 +33,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [myArray addObject:@"Hello"];
-    [myArray addObject:@"There!"];
-    [myArray addObject:@"This"];
-    [myArray addObject:@"is"];
-    [myArray addObject:@"cool"];
     
-    arrayColors = [[NSMutableArray alloc] init];
-	[arrayColors addObject:@"Red"];
-	[arrayColors addObject:@"Orange"];
-	[arrayColors addObject:@"Yellow"];
-	[arrayColors addObject:@"Green"];
-	[arrayColors addObject:@"Blue"];
-	[arrayColors addObject:@"Indigo"];
-	[arrayColors addObject:@"Violet"];
+    lineColors = [[NSMutableArray alloc] init];
+	[lineColors addObject:@"Red"];
+	[lineColors addObject:@"Orange"];
+	[lineColors addObject:@"Yellow"];
+	[lineColors addObject:@"Green"];
+	[lineColors addObject:@"Blue"];
+	[lineColors addObject:@"Indigo"];
+	[lineColors addObject:@"Violet"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -130,7 +124,7 @@
     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
     pickerView.showsSelectionIndicator = YES;
     
-    pickerView.dataSource = self.myArray;
+    pickerView.dataSource = self;
     pickerView.delegate = self;
     
     [actionSheet addSubview:pickerView];
@@ -155,24 +149,49 @@
 #pragma mark -
 #pragma mark Picker View Methods
 
+
+//Sets the number of wheels
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
 	
-	return 1;
+	return 2;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-	
-	return [arrayColors count];
+//Sets the number of items per wheel
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component 
+{
+	if(component == 0)
+    {
+        return [lineColors count];
+    }
+    else
+    if(component == 1)
+    {
+        return 5;
+    }
+    else
+    return 0;
 }
 
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	
-	return [arrayColors objectAtIndex:row];
+//A datasource method that sets the items in each wheel
+//Component specifies the wheel
+//Row sets each row item
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{ 
+	if (component == 0) 
+    {
+        return [lineColors objectAtIndex:row];
+    } 
+    else 
+    {
+        return [NSString stringWithFormat: @"%d", row+1];
+	}
 }
 
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component 
+{
 	
-	NSLog(@"Selected Color: %@. Index of selected color: %i", [arrayColors objectAtIndex:row], row);
+	//NSLog(@"Selected Color: %@. Index of selected color: %i", [lineColors objectAtIndex:row], row);
 }
 
 @end

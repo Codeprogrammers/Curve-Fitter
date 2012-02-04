@@ -10,9 +10,7 @@
 
 @interface GraphDetailViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
-    NSMutableArray *myArray;
-    NSMutableArray *arrayColors;
+    NSMutableArray *lineColors;
 }
 
-@property (nonatomic, retain) NSMutableArray *myArray;
 @end
