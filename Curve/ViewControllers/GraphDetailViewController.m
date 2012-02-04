@@ -9,6 +9,7 @@
 #import "GraphDetailViewController.h"
 
 @implementation GraphDetailViewController
+@synthesize pickerActions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -117,13 +118,13 @@
             [self.curveDetailViewController refreshCurve];
         }
         */
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
+    pickerActions = [[UIActionSheet alloc] initWithTitle:nil 
                                                              delegate:nil
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:nil];
     
-    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [pickerActions setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     
@@ -133,7 +134,7 @@
     pickerView.dataSource = self;
     pickerView.delegate = self;
     
-    [actionSheet addSubview:pickerView];
+    [pickerActions addSubview:pickerView];
     [pickerView release];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Done"]];
@@ -141,16 +142,26 @@
     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
     closeButton.tintColor = [UIColor blackColor];
-    [closeButton addTarget:self action:@selector(actionSheetCancel:) forControlEvents:UIControlEventValueChanged];
-    [actionSheet addSubview:closeButton];
+    [closeButton addTarget:self action:@selector(dismissSheet) forControlEvents:UIControlEventValueChanged];
+    [pickerActions addSubview:closeButton];
     [closeButton release];
     
-    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    [pickerActions showInView:[[UIApplication sharedApplication] keyWindow]];
     
-    [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [pickerActions setBounds:CGRectMake(0, 0, 320, 485)];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     
 }
+
+-(void)dismissSheet
+{
+    if (pickerActions)
+    {
+        [pickerActions dismissWithClickedButtonIndex:0 animated:YES];
+    }
+}
+
 
 #pragma mark -
 #pragma mark Picker View Methods

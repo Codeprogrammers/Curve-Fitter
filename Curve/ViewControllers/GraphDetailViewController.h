@@ -12,6 +12,12 @@
 {
     NSMutableArray *lineColors;
     NSMutableArray *lineStyles;
+    
+    UIActionSheet *pickerActions;
 }
 
+@property (nonatomic, retain) UIActionSheet *pickerActions;
+
+
+-(void)dismissSheet;
 @end
