@@ -156,7 +156,7 @@
     }
 
     
-    function = [NSString stringWithFormat:@"f(x) = %fx + %f",m,b];
+    self.function = [NSString stringWithFormat:@"f(x) = %fx + %f",m,b];
 }
 
 

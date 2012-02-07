@@ -40,6 +40,8 @@
 - (CPTXYGraph *) initCurveGraph;
 - (void) loadCurvePoints;
 - (void) refreshCurve;
+- (void) refreshCurveFunction;
+-(void)changePlotRange;
 - (IBAction)showGraphDetails:(id)sender;
 - (IBAction)focusGraph:(id)sender;
 - (void) changeGraphThemeTo: (CPTTheme *) newTheme;

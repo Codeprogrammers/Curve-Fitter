@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self refreshCurveFunction];
     [self initCurveGraph];
     
     
@@ -76,15 +77,11 @@
 - (IBAction)focusGraph:(id)sender
 {
     NSLog(@"Refocus Graph Pressed");
+    [self changePlotRange];
 }
 
 -(void)changePlotRange 
-{
-    if(selectedCurve.function == nil)
-        self.curveFunction.title = @"f(X)";
-    else
-        self.curveFunction.title = selectedCurve.function;
-    
+{    
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     if(((int) [selectedCurve.dataPoints count]) > 1)
@@ -92,9 +89,9 @@
 
     plotSpace.allowsUserInteraction = YES;
     
-        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * .1))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) * 1.2)];
+        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * 2))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) * 1.2)];
         
-        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * .1))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) * 1.2)];
+        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * 2))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) * 1.2)];
     }
     else
     {
@@ -253,8 +250,17 @@
 	self.dataForPlot = contentArray;
 }
 
+- (void) refreshCurveFunction
+{
+    if(selectedCurve.function == nil)
+        self.curveFunction.title = @"f(X)";
+    else
+        self.curveFunction.title = selectedCurve.function;
+}
+
 - (void) refreshCurve
 {
+    [self refreshCurveFunction];
     [self changePlotRange];
     [self loadCurvePoints];
     [graph reloadData];
