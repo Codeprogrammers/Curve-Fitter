@@ -48,6 +48,14 @@
 	[lineColors addObject:@"Red"];
 	[lineColors addObject:@"White"];
     [lineColors addObject:@"Yellow"];
+    
+    graphStyles = [[NSMutableArray alloc] init];
+    [graphStyles addObject:@"Dark Gradient"];
+    [graphStyles addObject:@"Plain Black"];
+    [graphStyles addObject:@"Plain White"];
+    [graphStyles addObject:@"Slate"];
+    [graphStyles addObject:@"Stocks"];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -73,7 +81,7 @@
 - (NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -94,6 +102,9 @@
     cell.textLabel.text = @"Graph Line Style";
     else
     if(indexPath.row == 1)
+        cell.textLabel.text = @"Graph Point Style";
+    else
+    if(indexPath.row == 2)
         cell.textLabel.text = @"Graph Theme";
     else
         cell.textLabel.text = @"Graph Options!";  

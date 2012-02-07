@@ -12,6 +12,7 @@
 {
     NSMutableArray *lineColors;
     NSMutableArray *lineStyles;
+    NSMutableArray *graphStyles;
     
     UIActionSheet *pickerActions;
 }
