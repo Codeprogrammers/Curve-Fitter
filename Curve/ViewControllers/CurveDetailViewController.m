@@ -134,8 +134,11 @@
 {
     // Create graph from theme
     graph = [[CPTXYGraph alloc] initWithFrame:graphView.frame];
-	CPTTheme *theme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
-    [graph applyTheme:theme];
+    
+    if(currentGraphTheme == nil)
+        currentGraphTheme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
+    
+    [graph applyTheme:currentGraphTheme];
 	CPTGraphHostingView *hostingView = (CPTGraphHostingView *)self.graphView;
     hostingView.collapsesLayers = NO; // Setting to YES reduces GPU memory usage, but can slow drawing/scrolling
     hostingView.hostedGraph = graph;
@@ -181,7 +184,12 @@
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.miterLimit = 1.0f;
 	lineStyle.lineWidth = 0.0f;
-	lineStyle.lineColor = [CPTColor blueColor];
+    
+    if(currentPointColor == nil)
+        lineStyle.lineColor = [CPTColor blueColor];
+    else
+        lineStyle.lineColor = currentPointColor;
+    
     boundLinePlot.dataLineStyle = lineStyle;
     boundLinePlot.identifier = @"Blue Plot";
     boundLinePlot.dataSource = self;
@@ -210,8 +218,13 @@
 	CPTScatterPlot *dataSourceLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
     lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineWidth = 3.f;
-    lineStyle.lineColor = [CPTColor greenColor];
-	lineStyle.dashPattern = [NSArray arrayWithObjects:[NSNumber numberWithFloat:5.0f], [NSNumber numberWithFloat:5.0f], nil];
+    
+    if(currentLineColor == nil)
+        lineStyle.lineColor = [CPTColor greenColor];
+	else
+        lineStyle.lineColor = currentLineColor;
+    
+    lineStyle.dashPattern = [NSArray arrayWithObjects:[NSNumber numberWithFloat:5.0f], [NSNumber numberWithFloat:5.0f], nil];
     dataSourceLinePlot.dataLineStyle = lineStyle;
     dataSourceLinePlot.identifier = @"Green Plot";
     dataSourceLinePlot.dataSource = self;

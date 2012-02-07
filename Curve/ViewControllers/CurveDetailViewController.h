@@ -19,6 +19,10 @@
     curveMath *selectedCurve;
     CPTXYGraph *graph;
     
+    CPTTheme *currentGraphTheme;
+    CPTColor *currentPointColor;
+    CPTColor *currentLineColor;
+    
     NSMutableArray *dataForPlot;
     UIBarButtonItem *curveFunction;
     UIBarButtonItem *graphDetailCurl;
