@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     [self initCurveGraph];
-    self.curveFunction.title = @"f(X)";
+    
     
 
     
@@ -73,8 +73,18 @@
     return YES;
 }
 
+- (IBAction)focusGraph:(id)sender
+{
+    NSLog(@"Refocus Graph Pressed");
+}
+
 -(void)changePlotRange 
 {
+    if(selectedCurve.function == nil)
+        self.curveFunction.title = @"f(X)";
+    else
+        self.curveFunction.title = selectedCurve.function;
+    
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     if(((int) [selectedCurve.dataPoints count]) > 1)
@@ -159,25 +169,13 @@
     
     //Origin
     x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-    
- 	NSArray *exclusionRanges = [NSArray arrayWithObjects:
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(2.99) length:CPTDecimalFromFloat(0.02)],
-                                nil];
-	//x.labelExclusionRanges = exclusionRanges;
+
     
     CPTXYAxis *y = axisSet.yAxis;
     y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     
     //Origin
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-	exclusionRanges = [NSArray arrayWithObjects:
-                       [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
-                       [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
-                       [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(3.99) length:CPTDecimalFromFloat(0.02)],
-                       nil];
-	//y.labelExclusionRanges = exclusionRanges;
     
 	// Create a blue plot area
 	CPTScatterPlot *boundLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
@@ -194,16 +192,6 @@
     boundLinePlot.identifier = @"Blue Plot";
     boundLinePlot.dataSource = self;
 	[graph addPlot:boundLinePlot];
-	
-    /*
-     // Do a blue gradient
-     CPTColor *areaColor1 = [CPTColor colorWithComponentRed:0.3 green:0.3 blue:1.0 alpha:0.8];
-     CPTGradient *areaGradient1 = [CPTGradient gradientWithBeginningColor:areaColor1 endingColor:[CPTColor clearColor]];
-     areaGradient1.angle = -90.0f;
-     CPTFill *areaGradientFill = [CPTFill fillWithGradient:areaGradient1];
-     boundLinePlot.areaFill = areaGradientFill;
-     boundLinePlot.areaBaseValue = [[NSDecimalNumber zero] decimalValue];    
-     */
     
 	// Add plot symbols
 	CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
@@ -228,16 +216,6 @@
     dataSourceLinePlot.dataLineStyle = lineStyle;
     dataSourceLinePlot.identifier = @"Green Plot";
     dataSourceLinePlot.dataSource = self;
-    
-    /*
-     // Put an area gradient under the plot above
-     CPTColor *areaColor = [CPTColor colorWithComponentRed:0.3 green:1.0 blue:0.3 alpha:0.8];
-     CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:areaColor endingColor:[CPTColor clearColor]];
-     areaGradient.angle = -90.0f;
-     areaGradientFill = [CPTFill fillWithGradient:areaGradient];
-     dataSourceLinePlot.areaFill = areaGradientFill;
-     dataSourceLinePlot.areaBaseValue = CPTDecimalFromString(@"1.75");
-     */
     
 	// Animate in the new plot, as an example
 	dataSourceLinePlot.opacity = 0.0f;
@@ -293,4 +271,9 @@
     [graphDetails release];
 }
 
+- (void) changeGraphThemeTo: (CPTTheme *) newTheme
+{
+    currentGraphTheme = newTheme;
+    [graph applyTheme:currentGraphTheme];
+}
 @end

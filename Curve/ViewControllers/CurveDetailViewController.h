@@ -41,5 +41,7 @@
 - (void) loadCurvePoints;
 - (void) refreshCurve;
 - (IBAction)showGraphDetails:(id)sender;
+- (IBAction)focusGraph:(id)sender;
+- (void) changeGraphThemeTo: (CPTTheme *) newTheme;
 
 @end
