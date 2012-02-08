@@ -45,6 +45,7 @@
 {
     [self init];
     self.curveName = newName;
+    self.isNew = TRUE;
     return self;
 }
 
@@ -155,7 +156,7 @@
     }
 
     
-    function = [NSString stringWithFormat:@"f(x) = %fx + %f",m,b];
+    self.function = [NSString stringWithFormat:@"f(x) = %fx + %f",m,b];
 }
 
 
@@ -183,7 +184,7 @@
         self.highX = newX;
         self.lowY = newY;
         self.highY = newY;
-        self.isNew = TRUE;
+        self.isNew = FALSE;
     } 
     else 
     {//entry of at least 2nd point and on:

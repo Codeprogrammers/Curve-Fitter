@@ -7,9 +7,12 @@
 //
 
 #import "CurveDetailViewController.h"
+#import "PointXY.h"
 
 @implementation CurveDetailViewController
 
+@synthesize graphView;
+@synthesize graphDetailCurl, curveFunction;
 @synthesize selectedCurve;
 @synthesize dataForPlot;
 
@@ -35,10 +38,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self refreshCurveFunction];
     [self initCurveGraph];
+    
+    
+
+    
     // Do any additional setup after loading the view from its nib.
 
         
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackTranslucent];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }
 
 - (void)viewDidUnload
@@ -54,13 +74,36 @@
     return YES;
 }
 
--(void)changePlotRange 
+- (IBAction)focusGraph:(id)sender
 {
+    NSLog(@"Refocus Graph Pressed");
+    [self changePlotRange];
+}
+
+-(void)changePlotRange 
+{    
     // Setup plot space
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(3.0 + 2.0*rand()/RAND_MAX)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(3.0 + 2.0*rand()/RAND_MAX)];
+    if(((int) [selectedCurve.dataPoints count]) > 1)
+    {
+
+    plotSpace.allowsUserInteraction = YES;
+    
+        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX - (selectedCurve.lowX * 2))) length:CPTDecimalFromFloat((selectedCurve.highX - selectedCurve.lowX) * 1.2)];
+        
+        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY - (selectedCurve.lowY * 2))) length:CPTDecimalFromFloat((selectedCurve.highY - selectedCurve.lowY) * 1.2)];
+    }
+    else
+    {
+        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowX) / 2) length:CPTDecimalFromFloat((selectedCurve.lowX) * 2)];
+        
+        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((selectedCurve.lowY) / 2) length:CPTDecimalFromFloat((selectedCurve.lowX) * 2)];
+    }
+     
+    
 }
+
+
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
     return [dataForPlot count];
@@ -97,10 +140,13 @@
 - (CPTXYGraph *) initCurveGraph;
 {
     // Create graph from theme
-    graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-	CPTTheme *theme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
-    [graph applyTheme:theme];
-	CPTGraphHostingView *hostingView = (CPTGraphHostingView *)self.view;
+    graph = [[CPTXYGraph alloc] initWithFrame:graphView.frame];
+    
+    if(currentGraphTheme == nil)
+        currentGraphTheme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
+    
+    [graph applyTheme:currentGraphTheme];
+	CPTGraphHostingView *hostingView = (CPTGraphHostingView *)self.graphView;
     hostingView.collapsesLayers = NO; // Setting to YES reduces GPU memory usage, but can slow drawing/scrolling
     hostingView.hostedGraph = graph;
 	
@@ -110,55 +156,39 @@
 	graph.paddingBottom = 0.0;
     
     // Setup plot space
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = YES;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.0) length:CPTDecimalFromFloat(2.0)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.0) length:CPTDecimalFromFloat(3.0)];
+    [self changePlotRange];
+    
     
     // Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     CPTXYAxis *x = axisSet.xAxis;
-    x.majorIntervalLength = CPTDecimalFromString(@"0.5");
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"2");
-    x.minorTicksPerInterval = 2;
- 	NSArray *exclusionRanges = [NSArray arrayWithObjects:
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(2.99) length:CPTDecimalFromFloat(0.02)],
-                                nil];
-	x.labelExclusionRanges = exclusionRanges;
+    x.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
+    
+    //Origin
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+
     
     CPTXYAxis *y = axisSet.yAxis;
-    y.majorIntervalLength = CPTDecimalFromString(@"0.5");
-    y.minorTicksPerInterval = 5;
-    y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"2");
-	exclusionRanges = [NSArray arrayWithObjects:
-                       [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)], 
-                       [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
-                       [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(3.99) length:CPTDecimalFromFloat(0.02)],
-                       nil];
-	y.labelExclusionRanges = exclusionRanges;
+    y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
+    
+    //Origin
+    y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
 	// Create a blue plot area
 	CPTScatterPlot *boundLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.miterLimit = 1.0f;
 	lineStyle.lineWidth = 0.0f;
-	lineStyle.lineColor = [CPTColor blueColor];
+    
+    if(currentPointColor == nil)
+        lineStyle.lineColor = [CPTColor blueColor];
+    else
+        lineStyle.lineColor = currentPointColor;
+    
     boundLinePlot.dataLineStyle = lineStyle;
     boundLinePlot.identifier = @"Blue Plot";
     boundLinePlot.dataSource = self;
 	[graph addPlot:boundLinePlot];
-	
-    /*
-     // Do a blue gradient
-     CPTColor *areaColor1 = [CPTColor colorWithComponentRed:0.3 green:0.3 blue:1.0 alpha:0.8];
-     CPTGradient *areaGradient1 = [CPTGradient gradientWithBeginningColor:areaColor1 endingColor:[CPTColor clearColor]];
-     areaGradient1.angle = -90.0f;
-     CPTFill *areaGradientFill = [CPTFill fillWithGradient:areaGradient1];
-     boundLinePlot.areaFill = areaGradientFill;
-     boundLinePlot.areaBaseValue = [[NSDecimalNumber zero] decimalValue];    
-     */
     
 	// Add plot symbols
 	CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
@@ -173,21 +203,16 @@
 	CPTScatterPlot *dataSourceLinePlot = [[[CPTScatterPlot alloc] init] autorelease];
     lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineWidth = 3.f;
-    lineStyle.lineColor = [CPTColor greenColor];
-	lineStyle.dashPattern = [NSArray arrayWithObjects:[NSNumber numberWithFloat:5.0f], [NSNumber numberWithFloat:5.0f], nil];
+    
+    if(currentLineColor == nil)
+        lineStyle.lineColor = [CPTColor greenColor];
+	else
+        lineStyle.lineColor = currentLineColor;
+    
+    lineStyle.dashPattern = [NSArray arrayWithObjects:[NSNumber numberWithFloat:5.0f], [NSNumber numberWithFloat:5.0f], nil];
     dataSourceLinePlot.dataLineStyle = lineStyle;
     dataSourceLinePlot.identifier = @"Green Plot";
     dataSourceLinePlot.dataSource = self;
-    
-    /*
-     // Put an area gradient under the plot above
-     CPTColor *areaColor = [CPTColor colorWithComponentRed:0.3 green:1.0 blue:0.3 alpha:0.8];
-     CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:areaColor endingColor:[CPTColor clearColor]];
-     areaGradient.angle = -90.0f;
-     areaGradientFill = [CPTFill fillWithGradient:areaGradient];
-     dataSourceLinePlot.areaFill = areaGradientFill;
-     dataSourceLinePlot.areaBaseValue = CPTDecimalFromString(@"1.75");
-     */
     
 	// Animate in the new plot, as an example
 	dataSourceLinePlot.opacity = 0.0f;
@@ -216,19 +241,45 @@
 	NSUInteger i;
 	for ( i = 0; i < [selectedCurve.dataPoints count]; i++ ) {
         
-		id x = [NSNumber numberWithFloat:1+i*0.05];
-        //id x = [selectedCurve.xData objectAtIndex:i];
-		id y = [NSNumber numberWithFloat:1.2*rand()/(float)RAND_MAX + 1.2]; 
-        //id y = [selectedCurve.yData objectAtIndex:i];
+		//id x = [NSNumber numberWithFloat:1+i*0.05];
+        id x = [NSNumber numberWithFloat: [[selectedCurve.dataPoints objectAtIndex:i] pointX]];
+		//id y = [NSNumber numberWithFloat:1.2*rand()/(float)RAND_MAX + 1.2]; 
+        id y = [NSNumber numberWithFloat: [[selectedCurve.dataPoints objectAtIndex:i] pointY]];
 		[contentArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
 	}
 	self.dataForPlot = contentArray;
 }
 
+- (void) refreshCurveFunction
+{
+    if(selectedCurve.function == nil)
+        self.curveFunction.title = @"f(X)";
+    else
+        self.curveFunction.title = selectedCurve.function;
+}
+
 - (void) refreshCurve
 {
+    [self refreshCurveFunction];
+    [self changePlotRange];
     [self loadCurvePoints];
     [graph reloadData];
 }
 
+- (IBAction)showGraphDetails:(id)sender
+{
+    NSLog(@"Curl Graph Details Pressed!");
+    GraphDetailViewController *graphDetails = [[GraphDetailViewController alloc] init];
+    
+    graphDetails.modalTransitionStyle = UIModalTransitionStylePartialCurl;
+    [self presentModalViewController:graphDetails animated:YES];
+    
+    [graphDetails release];
+}
+
+- (void) changeGraphThemeTo: (CPTTheme *) newTheme
+{
+    currentGraphTheme = newTheme;
+    [graph applyTheme:currentGraphTheme];
+}
 @end

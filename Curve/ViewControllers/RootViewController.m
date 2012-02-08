@@ -267,6 +267,7 @@
     [curve1 addPointX:160 andPointY:160];
     [curve1 addPointX:143 andPointY:200];
     [curve1 sort];
+    [curve1 fitCurve];
     
     curveMath *curve2 = [[curveMath alloc] initWithName:@"Curve #2"];
     for (int i=0; i<45; i++) 
