@@ -240,6 +240,10 @@
     [stringToMove release];
 }
 
+
+/** Delegate function that removes a specific curve from the CureList.
+ @returns nothing
+*/
 -(void) tableView: (UITableView *)tableView commitEditingStyle: (UITableViewCellEditingStyle) editingStyle forRowAtIndexPath: (NSIndexPath *)indexPath
 //This method performs deletions
 {
@@ -254,6 +258,13 @@
     [self.curveListTable reloadData];
 }
 
+/** Loads a Hardcoded list of curve values for debugging purposes till presistent data model
+ is created.
+ 
+ @warning This is a debugging method and will be removed upon release.
+ @returns nothing
+ 
+*/
 -(void) LoadSampleCurves
 {  
     

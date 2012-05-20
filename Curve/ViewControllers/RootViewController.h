@@ -6,6 +6,9 @@
 //  Copyright (c) 2011 Codeprogrammers for Gonzaga University. All rights reserved.
 //
 
+/** This class is the main ViewController for the app that allows the user to 
+select or edit a Curve from the CurveList.
+*/
 #import <UIKit/UIKit.h>
 #import "CurveDetailViewController.h"
 #import "EditCurveViewController.h"
@@ -31,6 +34,7 @@
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *addToCurveList;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *editCurveList; 
 @property (nonatomic, strong) IBOutlet UITableView *curveListTable;
+
 
 
 -(void) LoadSampleCurves;
