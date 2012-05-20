@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		A2D6C1B51568C8AA006A975F /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A2D6C1B61568C8AA006A975F /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				A2D6C1B91568C8BF006A975F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		01FB47DD14CBBC7200D1BDA1 /* PointXY.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB47DC14CBBC7200D1BDA1 /* PointXY.m */; };
 		A20372041495C9A000E65FFC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20372031495C9A000E65FFC /* Default@2x.png */; };
@@ -37,6 +51,7 @@
 		A2A443C414C28B4B0033B936 /* CurveArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A443C314C28B4B0033B936 /* CurveArray.m */; };
 		A2AF463D14B348C300D2D0A8 /* PointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AF463B14B348C300D2D0A8 /* PointCell.m */; };
 		A2AF463E14B348C300D2D0A8 /* PointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2AF463C14B348C300D2D0A8 /* PointCell.xib */; };
+		A2D6C1B41568C85F006A975F /* AppledocSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2D6C1B31568C85F006A975F /* AppledocSettings.plist */; };
 		A2E4D73D1494320700E41CD4 /* curveMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E4D73C1494320700E41CD4 /* curveMath.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +107,7 @@
 		A2AF463A14B348C300D2D0A8 /* PointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointCell.h; path = Curve/ViewControllers/PointCell.h; sourceTree = SOURCE_ROOT; };
 		A2AF463B14B348C300D2D0A8 /* PointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointCell.m; path = Curve/ViewControllers/PointCell.m; sourceTree = SOURCE_ROOT; };
 		A2AF463C14B348C300D2D0A8 /* PointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PointCell.xib; path = Curve/Views/PointCell.xib; sourceTree = SOURCE_ROOT; };
+		A2D6C1B31568C85F006A975F /* AppledocSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppledocSettings.plist; path = ../AppledocSettings.plist; sourceTree = "<group>"; };
 		A2E4D73B1494320700E41CD4 /* curveMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = curveMath.h; path = "Curve/Models/Class Objects/curveMath.h"; sourceTree = SOURCE_ROOT; };
 		A2E4D73C1494320700E41CD4 /* curveMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = curveMath.m; path = "Curve/Models/Class Objects/curveMath.m"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
@@ -162,6 +178,7 @@
 			children = (
 				A205A06914941DA5006963B2 /* AppDelegate.h */,
 				A205A06A14941DA5006963B2 /* AppDelegate.m */,
+				A2D6C1B31568C85F006A975F /* AppledocSettings.plist */,
 				A21F0F8114955A8200443375 /* ViewControllers */,
 				A205A07B14941E2B006963B2 /* Views */,
 				A2E4D73F1494320B00E41CD4 /* Models */,
@@ -305,6 +322,7 @@
 			projectRoot = "";
 			targets = (
 				A205A05514941DA4006963B2 /* Curve */,
+				A2D6C1B51568C8AA006A975F /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -340,10 +358,27 @@
 				A2291B9B14D3F0EA004236CA /* GraphDetailViewController.xib in Resources */,
 				A24BA1FB14E15C650088D4A8 /* pagecurl.png in Resources */,
 				A24BA1FC14E15C650088D4A8 /* pagecurlraw.png in Resources */,
+				A2D6C1B41568C85F006A975F /* AppledocSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2D6C1B91568C8BF006A975F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Build Curve Documentation from source\n/usr/bin/appledoc --project-name \"Curve Fitter\" --project-company \"Codeprogrammers LLC\" --company-id net.codeprogrammers --no-install-docset --keep-intermediate-files --output ./Documentation ./Curve";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A205A05214941DA4006963B2 /* Sources */ = {
@@ -458,6 +493,20 @@
 			};
 			name = Release;
 		};
+		A2D6C1B71568C8AA006A975F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A2D6C1B81568C8AA006A975F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -478,6 +527,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A2D6C1B61568C8AA006A975F /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2D6C1B71568C8AA006A975F /* Debug */,
+				A2D6C1B81568C8AA006A975F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
