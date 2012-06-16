@@ -3,7 +3,7 @@
 //  Curve
 //
 //  Created by Bradley Clemetson on 12/10/11.
-//  Copyright (c) 2011 Codeprogrammers for Gonzaga University. All rights reserved.
+//  Copyright (c) 2011 Codeprogrammers LLC. All rights reserved.
 //
 
 /** This class is the main ViewController for the app that allows the user to 

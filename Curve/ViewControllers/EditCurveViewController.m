@@ -3,7 +3,7 @@
 //  Curve
 //
 //  Created by Bradley Clemetson on 12/15/11.
-//  Copyright (c) 2011 Codeprogrammers for Gonzaga University. All rights reserved.
+//  Copyright (c) 2011 Codeprogrammers LLC. All rights reserved.
 //
 
 #import "EditCurveViewController.h"

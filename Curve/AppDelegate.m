@@ -3,7 +3,7 @@
 //  Curve
 //
 //  Created by Bradley Clemetson on 12/10/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Codeprogrammers LLC. All rights reserved.
 //
 
 #import "AppDelegate.h"
