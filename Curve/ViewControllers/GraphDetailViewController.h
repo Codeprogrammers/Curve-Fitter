@@ -14,9 +14,12 @@
     NSMutableArray *lineStyles;
     NSMutableArray *graphStyles;
     
+    UITableView *graphOptionsTable;
     UIActionSheet *pickerActions;
+    
 }
 
+@property (nonatomic, retain) IBOutlet UITableView *graphicsOptionsTable;
 @property (nonatomic, retain) UIActionSheet *pickerActions;
 
 

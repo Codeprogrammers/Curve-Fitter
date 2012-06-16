@@ -9,14 +9,15 @@
 #import "GraphDetailViewController.h"
 
 @implementation GraphDetailViewController
-@synthesize pickerActions;
+@synthesize graphicsOptionsTable, pickerActions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
+        graphicsOptionsTable.backgroundColor = [UIColor  scrollViewTexturedBackgroundColor];
+        
     }
     return self;
 }
